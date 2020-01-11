@@ -200,6 +200,7 @@
 	background: #fff;
 	border-radius: 6px;
 	position: relative;
+	min-height: 2.5rem;
 }
 .car-address .cartFull-del{
 	position: absolute;
@@ -297,8 +298,12 @@
 }
 .car-set button{
 	padding: 0;
+	margin-top: 10px;
+	margin-left: 10px;
 }
-
+.endCar{
+	color: #ff0000;
+}
 .carSet-empty{
 	width: 98px;
 	line-height: 40px;
@@ -350,10 +355,14 @@
 	color: rgb(81, 142, 57);
 }
 /*订单处理*/
-.process {}
+.process {
+	padding: 0.2rem;
+}
 .process ul li {
 	display: flex;
 	border: 1px solid #ccc;
+	background: #FFFFFF;
+	margin-bottom: 0.2rem;
 }
 .process ul li input {
 	display: inline-block;
