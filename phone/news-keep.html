@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/all.css" />
+    <link rel="stylesheet" type="text/css" href="css/news.css" />
+    <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/phone.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body style="padding-top: 100px;padding-bottom: 180px;">
+<div id="cart-head" class="show">
+    <div class="cart-head">
+        <a class="return" href="javascript:history.back(-1);">
+            <span class="arrow-left"></span>
+        </a>
+        <div class="head-title">专属客服</div>
+    </div>
+    <div class="head-contact">
+        <ul class="clearfix">
+            <li>
+                <a target="_blank" href="">
+                    <span class="qq"></span>
+                    QQ联系
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="mobile"></span>
+                    电话联系
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="news-box">
+    <ul>
+        <li class="notice-list">
+            <a href="/sign/index.php">
+                <span class="notice-time">11-15 11:19</span>
+                <div class="notice-main">
+							<span class="notic-head">
+								<img src="img/phone-head.jpg">
+							</span>
+                    <div class="notic-content">
+                        <div class="keep-info">
+                            您好，很高兴为您服务，请问有什么能帮到您的？
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+
+    </ul>
+</div>
+<!-- 语音输入小话筒 -->
+<div class="voice_cues" style="display: none;">
+    <img src="img/voice_on.gif" width="100%">
+</div>
+<!-- 底部输入栏 -->
+<div id="message_foot">
+    <form id="form">
+        <div class="message_foot">
+            <div class="message_foot_default" id="send_voice">
+                <!--		                <a href="javascript:send_voice_btn();" class="message_foot_left" id="send_voice_btn" style="display: block;"><i class="icon-voice"></i></a>-->
+                <!--		                <a href="javascript:send_text_btn();" class="message_foot_left" id="send_text_btn" style="display: none;"><i class="icon-keyboard"></i></a>-->
+                <div class="textarea" id="send_voice_btn_2" style="display: block;"><span><textarea class="content"
+                                                                                                    id="content"
+                                                                                                    name="content"
+                                                                                                    placeholder="请输入内容..."
+                                                                                                    onkeyup="send_text_check(this)"></textarea></span>
+                </div>
+                <!--		                <a href="javascript:void(0);" class="repress noselect" id="send_text_btn_2" style="display: none;"><span>按住说话</span></a>-->
+                <!--						<a href="javascript:send_text_submit();" class="message_foot_right" id="send_submit_btn" style="display:none"><span class="message_foot_send">发送</span></a>-->
+                <a href="javascript:send_form();" class="message_foot_right" id="send_form_btn"><i
+                        class="icon-more"></i></a>
+            </div>
+            <div class="message_foot_more" id="send_form" style="display: none;">
+                <ul>
+                    <li>
+                        <a href="/form/steelplate.php">
+                            <span class="img"><img src="img/form.png" width="20" height="20"></span>
+                            <p>订购钢板</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/form/shear.php">
+                            <span class="img"><img src="img/form.png" width="20" height="20"></span>
+                            <p>剪切加工</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/form/logistics.php">
+                            <span class="img"><img src="img/form.png" width="20" height="20"></span>
+                            <p>物流配送</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="upload_img" data-id="1">
+                            <span class="img"><img src="img/img.png" width="20" height="20"></span>
+                            <p>图片</p>
+                        </a>
+                        <div class="custom_img" style="display: none;">
+                            <input type="file" name="image[]" data-id="1" title="请选择图片" id="file1" accept="image/*">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="js/ask.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

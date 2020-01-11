@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>购物车</title>
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/day.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/user.css"/>
+		<link rel="stylesheet" type="text/css" href="css/shop.css"/>
+		<style type="text/css">
+			#invoice,
+			#Cinvoice {
+				width: 200px;
+				height: 50px;
+				padding: 5px;
+				box-sizing: border-box;
+				background: #f5f5f5;
+				border: 1px solid #ddd;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<div class="main-cart">
+			<div class="cart-box">
+				<div class="cart-list">
+					<!-- 有商品 -->
+					<div class="cart-full">
+						<div class="cartFull-tit">
+							购物车
+						</div>
+						<div class="cart-empty hidden">
+							购物车内没有商品。
+							<a class="cart-buy" href="shop.html">去商城选购 &gt;&gt;</a>
+						</div>
+						<div class="cartFull-box hidden">
+							<form action="" method="">
+								<table class="cartFull-table">
+									<thead>
+										<tr>
+											<th>货物信息</th>
+											<th>材质</th>
+											<th>规格</th>
+											<th>数量</th>
+											<th>单价</th>
+											<th>价格</th>
+											<th>是否加工</th>
+											<th>拼购</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+								
+								</table>
+								<div class="saleBox">
+									<h3>优惠券</h3>
+									<div class="sale-list">
+										<input type="radio" checked="checked" name="sale" id="saleNo" value="0" onchange="yhChange()" />
+										<label for="saleNo">不使用优惠券</label>
+									</div>
+								</div>
+								<div class="iousBox">
+									<h3>白条支付</h3>
+									<div class="iousNum">
+										<span class="iousNum-list1">总额度：70000.00</span>&nbsp;￥
+										<span class="iousNum-list1">已用额度：60000.00</span>&nbsp;￥
+										<span class="iousNum-list3">可用额度：10000.00</span>&nbsp;￥
+									</div>
+									<div class="iousType">
+										<input type="checkbox" name="" id="iousType" value="" />
+										<label for="iousType">使用白条支付</label>
+										<br>
+										<span class="iousUse"><input type="text" id="" value="" /><i>￥</i></span>
+									</div>
+								</div>
+								<div class="addressBox">
+									<h3>请选择收货地址</h3>
+									<span class="addAddresss"><i class="fa fa-plus" aria-hidden="true"></i>添加收货地址</span>
+									<ul class="addressList">
+										
+									</ul>
+								</div>
+								<div class="cartFull-out clearfix">
+									<div class="cartFull-outbox fr">
+										<div class="cartFull-weight clearfix">
+											<span class="weightL fl">重量小计:</span>
+											<span class="weightR fl"></span>
+										</div>
+										<div class="cartFull-price clearfix">
+											<span class="priceL fl">商品总价</span>
+											<span class="priceR fl">￥<strong></strong></span>
+										</div>
+									</div>
+									<div class="cartFull-btn clearfix fr">
+										<input type="button" name="" id="" value="去下单" />
+										<span class="cartPlan">计划采购</span>
+									</div>
+								</div>
+								<div class="planTime">
+									<h3>请选择您的计划时间</h3>
+									<div class="group-time">
+										<input class="start-plan" id="startTime" type="text" name="" value="" placeholder="请选择计划时间" />
+									</div>
+									<div class="planBtn">
+										<a href="plan.html" style="display: inline-block;"><span class="planSub">提交</span></a>
+										<span class="planClo" onclick="planClo(this)">取消</span>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="cart-del" onclick="allDel()">
+						<i class="fa fa-trash" aria-hidden="true"></i>
+						清空购物车
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 新增收货地址 -->
+		<div class="userAdd-box">
+			<div class="userAdd-point">
+				<p class="approve-tit clearfix">添加收货地址 <a class="userAdd-close"></a></p>
+				<ul class="approve-box clearfix">
+					<li class="approve-list">
+						<span>联系人<i>*</i></span>
+						<input type="text" name="" id="CuserName" value="" placeholder="姓名" />
+					</li>
+					<li class="approve-list">
+						<span>联系方式<i>*</i></span>
+						<input type="text" name="" id="CuserPhone" value="" placeholder="手机号" />
+					</li>
+					<li class="approve-list city_china_val" id="">
+						<span>收货地址<i>*</i></span>
+						<select class="province" id="CmyProvince" data-first-title="选择省" disabled="disabled"></select>
+						<select class="city" id="CmyCity" data-first-title="选择市" disabled="disabled"></select>
+						<select class="area" id="CmyArea" data-first-title="选择地区" disabled="disabled"></select>
+						<br>
+						<input class="morePoint" type="text" name="" id="CmyAddress" value="" placeholder="详细地址" />
+					</li>
+					<li class="approve-list">
+						<span>发票地址<i>*</i></span>
+						<textarea id="Cinvoice" placeholder="发票地址"></textarea>
+					</li>
+					<li class="approve-list">
+						<input type="button" name="" id="CaddAddress" value="保存" onclick="addPoint()" />
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 主体结束 -->
+		<!-- 底部 -->
+		<div class="footerpage"></div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/day.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cxselect.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$('.start-plan').datePicker({
+				okFunc: function (date) {
+					console.log(date);
+				}
+			});
+			var cxSelectApi;
+			$.cxSelect.defaults.url = 'js/cityData.min.json';
+			$('.city_china_val').cxSelect({
+				selects: ['province', 'city', 'area'],
+				jsonName: 'n',
+				// jsonValue: 'id',
+				emptyStyle: 'none'
+			}, function(api) {
+				cxSelectApi = api;
+			});
+		</script>
+		<!-- 添加收货地址 -->
+		<script type="text/javascript">
+			$('.addAddresss').click(function(){
+				$('.userAdd-box').show();
+			});
+			$('.userAdd-close').click(function(){
+				$('.userAdd-box').hide();
+			});
+		</script>
+		<script type="text/javascript">
+			function toMake(thiz){
+				if ($(thiz).prop("checked")) {
+					$(thiz).siblings('.toMake').show();
+				} else {
+				   $(thiz).siblings('.toMake').hide();
+				   $(thiz).siblings('textarea').hide();
+				}
+			}
+			function writeMake(thiz){
+				$(thiz).siblings('textarea').toggle();
+			}
+			function mrAddress(thiz){
+				$(thiz).siblings().removeClass('address-bg');
+				$(thiz).addClass('address-bg');
+			}
+			$("#iousType").change(function() {
+				if ($(this).prop("checked")) {
+					$(this).siblings('.iousUse').show();
+				} else {
+				   $(this).siblings('.iousUse').hide();
+				}
+			});
+			$('.toMake').click(function(){
+			});
+			$('.cartPlan').click(function(){
+				$('.planTime').show();
+			})
+			function planClo(cal){
+				$('.planTime').hide();
+			}
+		</script>
+		<script>
+		    $(function(){
+		        /*公共部分
+		         * 导航栏
+		         * footer CopyRight
+		         */
+		        $(".headerpage").load("header.html");
+		        $(".footerpage").load("footer.html");
+		    });
+		</script>
+		<script type="text/javascript">
+			// 获取购物车商品、优惠券、白条、收货地址列表
+			function getPoint(){
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listgwc',
+					type:'GET',
+					data:{},
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						if(result != "" && result.code == 1){
+							var shopPoint = result.address //收货地址
+								// 收货地址
+								for(var k in shopPoint){
+									if(shopPoint[k].cIfDefault == 1){
+										var pointList =
+											'<li class="address-bg" onclick="mrAddress(this)"><p>'+ shopPoint[k].cName + '</p><span>' + shopPoint[k].cPhone +'</span>'+
+											'<span>'+ shopPoint[k].cProvince + '&nbsp;&nbsp;' + shopPoint[k].cCity + '&nbsp;&nbsp;' + shopPoint[k].cDistrict +
+											'</span><span>' + shopPoint[k].cAddress + '</span><span>' + shopPoint[k].cAddress + '</span></li>';
+											$('.addressList').append(pointList);
+									}else{
+										var pointList2 =
+											'<li onclick="mrAddress(this)"><p>'+ shopPoint[k].cName + '</p><span>' + shopPoint[k].cPhone +'</span>'+
+											'<span>'+ shopPoint[k].cProvince + '&nbsp;&nbsp;' + shopPoint[k].cCity + '&nbsp;&nbsp;' + shopPoint[k].cDistrict +
+											'</span><span>' + shopPoint[k].cAddress + '</span><span>' + shopPoint[k].cAddress + '</span></li>';
+											$('.addressList').append(pointList2);
+									}
+								}
+						}
+					}
+				})
+			}
+			// 加载购物车
+			$(function(){
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listgwc',
+					type:'GET',
+					data:{},
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						if(result != "" && result.code == 1){
+							var shopCart = result.data;  //购物车商品
+							var shopEve = result.coupon  //优惠券
+							var shopIous = result.whiteNote //白条
+							var shopPoint = result.address //收货地址
+							$('.cart-num').html(shopCart.length);
+							if(shopCart.length == 0){
+								$('.cart-empty').removeClass('hidden');
+							}else{
+								$('.cartFull-box').removeClass('hidden');
+								for(var i in shopCart){
+									var cartList = 
+									'<tbody><tr><td class="cartFull-address" colspan="8">'+
+									'<input type="checkbox" name="" id="" value="" />'+ '<span class="hidden">'+ shopCart[i].stId + '</span>' +
+									'<span>地点</span>'+'仓库地址：'+ shopCart[i].stStoreaddress + '</td>' +
+									'<td class="cartFull-time">' + shopCart[i].stCreatettime + '</td>'+
+									'</tr><tr class="cartFull-mage"><td>' + shopCart[i].stShopName + '&nbsp;&nbsp;&nbsp;' + shopCart[i].stProductName + '</td><td>' + shopCart[i].stProducttexture + '</td>'+
+									'<td>'+ shopCart[i].stProducttexture + shopCart[i].stProductspec + '</td><td><span class="weightList">' + shopCart[i].stTonnum + '</span>吨</td>'+
+									'<td>' + shopCart[i].stPrice +'￥</td><td><span class="priceList">' + shopCart[i].stNowPrice + '</span>￥</td>'+
+									'<td class="forMake"><input type="checkbox" name="" id="" value="" onchange="toMake(this)" />加工'+
+									'<span class="toMake" onclick="writeMake(this)">备注信息</span><br><textarea></textarea></td>'+
+									'<td><a class="toPin" href="group-pin.html">去拼购</a></td>'+
+									'<td><span class="cartFull-del" onclick="oneDel(this,\''+ shopCart[i].stId + '\')">删除</span></td></tr></tbody>';
+									$('.cartFull-table').append(cartList);
+								};
+								// 优惠券
+								for(var j in shopEve){
+									var EveList = 
+										'<div class="sale-list"><input type="radio" onchange="yhChange()" name="sale" id="' + shopEve[j].cId + '" value="' + shopEve[j].cPrice + '" />'+
+										'<label for="' + shopEve[j].cId + '">' + shopEve[j].cName + '：' + shopEve[j].cPrice + '元</label></div>';
+										$('.saleBox').append(EveList);
+									
+								};
+								// 白条
+								// $('.iousNum-list1').html(shopIous.)
+								// 收货地址
+								getPoint();
+								allPrice();
+							}
+							
+						}
+					}
+				})
+			});
+			// 添加收货地址
+			function addPoint(){
+				var tkn = getCookie(tk);
+				var setCheck = 1;
+				var json = JSON.stringify({
+					cName: $('#CuserName').val(),
+					cPhone: $('#CuserPhone').val(),
+					cProvince: $('#CmyProvince').val(),
+					cCity: $('#CmyCity').val(),
+					cDistrict: $('#CmyArea').val(),
+					cAddress: $('#CmyAddress').val(),
+					cZipcode: $('#Cinvoice').val(),
+					cIfDefault: setCheck
+				});
+				$.ajax({
+					url: path + '/linA/adddz',
+					type: 'post',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: json,
+					contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						if (result != "" && result.code == 1) {
+							alert('添加成功！')
+							$('.addressList').html('');
+							$('.userAdd-box').hide();
+							getPoint();
+						} else {
+							alert(result.msg)
+						}
+					}
+				})
+			}
+			// 单个商品删除
+			function oneDel(thiz,oneId){
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/delgwc',
+					type:'POST',
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data:{
+						id:oneId
+					},
+					// contentType: 'application/json;charset=utf-8',
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result){
+						if(result != "" && result.code == 1){
+							alert(result.msg)
+							var cartNum = parseInt($('.cart-num').html());
+							$('.cart-num').html(cartNum - 1);
+							$(thiz).parents('tbody').remove();
+							allPrice();
+						}else{
+							alert(result.msg)
+						}
+					}
+				})
+			};
+			// 清空购物车
+			function allDel(){
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/delallgwc',
+					type:'POST',
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data:{},
+					// contentType: 'application/json;charset=utf-8',
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result){
+						if(result != "" && result.code == 1){
+							alert(result.msg)
+							$('.cart-num').html('0');
+							$('.cart-empty').removeClass('hidden');
+							$('.cartFull-box').addClass('hidden');
+							allPrice();
+						}else{
+							alert(result.msg)
+						}
+					}
+				})
+			};
+			// 商品重量
+			function allWeight(){
+				var myWeight = 0;
+				$(".weightList").each(function () {
+					var allList = $(this).text();
+					myWeight += allList;
+				})
+				$(".priceR strong").html((myWeight).toFixed(2)+'吨');
+			};
+			// 商品总价
+			function allPrice(){
+				var myPrice = 0;
+				var yhPrice = $(".saleBox input[type='radio']:checked").val();
+				var btPrice;
+				$(".priceList").each(function () {
+					var allList = $(this).text();
+					myPrice += allList;
+				})
+				if($('#iousType').is(':checked')){
+					btPrice = $('.iousUse input').val();
+				}else{
+					btPrice = 0;
+				}
+				myPrice = myPrice - yhPrice - btPrice;
+				if(myPrice<0){
+					myPrice = 0;
+				}
+				$(".priceR strong").html((myPrice).toFixed(2));
+			};
+			$('.iousUse input').change(function(){
+				var nowPrice = parseInt($('.priceR strong').html()).toFixed(2);
+				var nowNum = parseInt($(this).val()).toFixed(2) ;
+				var nowCj = nowNum - nowPrice;
+				console.log(nowCj)
+				if(nowCj > 0){
+					alert(1)
+					$(this).val(nowPrice)
+				}
+				allPrice()
+			});
+			function yhChange(){
+				var yhPrice = $(".saleBox input[type='radio']:checked").val();
+				allPrice()
+			}
+		</script>
+	</body>
+</html>

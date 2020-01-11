@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>订单管理</title>
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css" />
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/head.css" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css" />
+		<link rel="stylesheet" type="text/css" href="css/user.css" />
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<div class="main-user">
+			<div class="top-user"><img src="img/user-vip.png">用户中心</div>
+			<div class="user-box clearfix">
+				<div class="user-left fl">
+					<div class="userNav"></div>
+				</div>
+				<div class="user-right fr">
+					<div class="user-order">
+						<p class="userRight-tit"><img src="img/user/order-my.png">我的订单</p>
+						<table class="order-table ptTable">
+							<thead>
+								<tr>
+									<th class="goods">商品</th>
+									<th class="factory">钢厂</th>
+									<th class="house">仓库(数量)</th>
+									<th class="quality">材质</th>
+									<th class="norms">规格</th>
+									<th class="price">单价</th>
+									<th class="oneweight">件重</th>
+									<th class="processing">加工费用</th>
+								</tr>
+							</thead>
+							<tbody>
+								
+							</tbody>
+						</table>
+						<table class="order-table pdTable">
+							<thead>
+								<tr>
+									<th class="goods">商品</th>
+									<th class="factory">钢厂</th>
+									<th class="house">仓库(数量)</th>
+									<th class="quality">材质</th>
+									<th class="norms">规格</th>
+									<th class="price">单价</th>
+									<th class="oneweight">件重</th>
+									<th class="processing">加工费用</th>
+								</tr>
+							</thead>
+							<tbody>
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 主体结束 -->
+		<div class="footerpage"></div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$(".headerpage").load("header.html");
+				$(".footerpage").load("footer.html");
+				$(".userNav").load("userNav.html");
+			});
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listdd',
+					type: 'GET',
+					data: {},
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						console.log(result)
+						if(result != "" && result.code == 1){
+							var myOrder = result.order;
+							for (var i in myOrder) {
+								// cCategory 订单类别 1=普通订单 2=拼团订单"
+								if (myOrder[i].cCategory == 1) {
+									var orderBody = '<tr style="background: #f5f5f5;"><td colspan="3" style="text-align: left;padding: 5px 14px;background: #f5f5f5;">订单编号：' + myOrder.dOrderno +'</td>';
+									
+										if(myOrder[i].cState == 0){
+											orderBody += '<td colspan="3" style="color: #ff0000;">订单状态：订单取消</td>'
+										}else if(myOrder[i].cState == 1){
+											orderBody += '<td colspan="3" style="color: #0055ff;">订单状态：待付款</td>'
+										}else if(myOrder[i].cState == 2){
+											orderBody += '<td colspan="3" style="color: #ff00ff;">订单状态：待发货</td>'
+										}else if(myOrder[i].cState == 3){
+											orderBody += '<td colspan="3" style="color: #ff5500;">订单状态：已发货</td>'
+										}else if(myOrder[i].cState == 4){
+											orderBody += '<td colspan="3" style="color: #00aa00;">订单状态：已收货</td>'
+										}else if(myOrder[i].cState == 5){
+											orderBody += '<td colspan="3" style="color: #caca00;">订单状态：完结</td>'
+										};
+											// console.log(orderBody)
+									orderBody +=
+										'<td colspan="2" style="text-align: right;padding: 5px 14px;">' + myOrder.dCreatetime +
+										'</td></tr>';
+									for(var j in myOrder[i].detailList){
+										var myOrder1 = myOrder[i]
+										orderBody +=
+										'<tr><td>' + myOrder1.detailList[j].dShopcolumntype + 
+										'</td><td>' + myOrder1.detailList[j].dShopname + 
+										'</td><td>' + myOrder1.detailList[j].dProductnum + 
+										'</td><td>' + myOrder1.detailList[j].dProducttexture + 
+										'</td><td>' + myOrder1.detailList[j].dProductspec + 
+										'</td><td>' + myOrder1.detailList[j].dProductspec + 
+										'</td><td>' + myOrder1.detailList[j].dTonnum + 
+										'</td><td>' + myOrder1.detailList[j].dProcessprice + 
+										'</td>' + '</tr><tr><td>加工说明</td><td colspan="7">' + myOrder1.detailList[j].dProcessrequirement + '</td></tr>';
+									}
+									// console.log(orderBody)
+									orderBody +=
+									// var orderFoot =
+									'<tr><td>优惠券</td><td>' + myOrder.cCouponComment + ':&nbsp;' +  myOrder.cCouponPrice +
+									'元</td><td>白条金额</td><td>' + myOrder.cWhiteNotePrice + 
+									'元</td><td>平台优惠</td><td>' + myOrder.cPlatformPrice + 
+									'元</td><td>消耗钢豆</td><td>' + myOrder.cNum + '<i style="font-size: 12px; color: #cccccc;">( 抵用金额' + myOrder.cGold + '元)<i></td></tr>' +
+									'<tr><td colspan="6" style="text-align:left;">物流费：' + myOrder.cTransportPrice + 
+									'</td><td colspan="2" style="color: #ff0000;font-weight:blod;font-size:16px;">总费用：' + myOrder.cPrice + '元</td></tr>'
+							
+										
+									// $('.order-table').append(orderBody + orderList + orderFoot );
+									$('.ptTable').append(orderBody);
+								}else {
+									var	orderBody = 
+											'<tr style="background: #f5f5f5;"><td colspan="3" style="text-align: left;padding: 5px 14px;background: #f5f5f5;">订单编号：' + myOrder.dOrderno +'</td>';
+										
+											if(myOrder[i].cState == 0){
+												orderBody += '<td colspan="3" style="color: #ff0000;">订单状态：订单取消</td>'
+											}else if(myOrder[i].cState == 1){
+												orderBody += '<td colspan="3" style="color: #0055ff;">订单状态：待付款</td>'
+											}else if(myOrder[i].cState == 2){
+												orderBody += '<td colspan="3" style="color: #ff00ff;">订单状态：待发货</td>'
+											}else if(myOrder[i].cState == 3){
+												orderBody += '<td colspan="3" style="color: #ff5500;">订单状态：已发货</td>'
+											}else if(myOrder[i].cState == 4){
+												orderBody += '<td colspan="3" style="color: #00aa00;">订单状态：已收货</td>'
+											}else if(myOrder[i].cState == 5){
+												orderBody += '<td colspan="3" style="color: #caca00;">订单状态：完结</td>'
+											};
+												// console.log(orderBody)
+										orderBody +=
+										'<td colspan="4" style="text-align: right;padding: 5px 14px;background: #f5f5f5;">' + myOrder.dCreatetime +
+										'</td></tr><tr><td>' + myOrder1.detailList[j].dShopcolumntype + 
+										'</td><td>' + myOrder1.detailList[j].dShopname + 
+										'</td><td>' + myOrder1.detailList[j].dProductnum + 
+										'</td><td>' + myOrder1.detailList[j].dProducttexture + 
+										'</td><td>' + myOrder1.detailList[j].dProductspec + 
+										'</td><td>' + myOrder1.detailList[j].dProductspec + 
+										'</td><td>' + myOrder1.detailList[j].dTonnum + 
+										'</td><td>' + myOrder1.detailList[j].dProcessprice + 
+										'</td>' + '</tr><tr><td>加工说明</td><td colspan="7">' + myOrder1.detailList[j].dProcessrequirement + 
+										'<tr><td colspan="6" style="text-align:left;">物流费：' + myOrder.cTransportPrice + 
+										'</td><td colspan="2" style="color: #ff0000;font-weight:blod;font-size:16px;">总费用：' + myOrder.cPrice + '元</td></tr>'
+										
+									$('.pdTable').append(orderBody);
+								}
+							}
+						}else{
+							alert(result.msg)
+						}
+						
+
+					}
+				})
+			})
+		</script>
+	</body>
+</html>

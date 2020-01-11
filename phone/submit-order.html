@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/all.css" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/shop.css" />
+</head>
+<body style="padding-top: 50px;">
+<div id="cart-head" class="show">
+    <div class="cart-head">
+        <a class="return" href="javascript:history.back(-1);">
+            <span class="arrow-left"></span>
+        </a>
+        <div class="head-title">账货信息</div>
+    </div>
+</div>
+<div>
+    <div class="init-box">
+        <div class="init-title">收货信息</div>
+        <div class="submit-info">
+            <span>姓名：</span>
+            <input name="init-name" type="text" placeholder="请输入姓名" value="">
+        </div>
+        <div class="submit-info">
+            <span>手机号：</span>
+            <input name="init-phone" type="text" placeholder="请输入手机号" value="">
+        </div>
+        <div class="submit-info">
+            <span>送货地址：</span>
+            <input name="init-address" type="text" placeholder="请输入送货地址" value="">
+        </div>
+    </div>
+    <div class="init-box">
+        <div class="init-title">购货信息</div>
+        <div class="car-box">
+            <ul>
+                <li class="car-list">
+                    <div class="car-address" style="padding: 0;width: 100%;">
+                        <span>泰州库</span>
+                    </div>
+                    <div class="car-goods" style="padding: 0.2rem 0;">
+                        <span>日照　酸洗卷　SPHC</span>
+                        <span class="carGood-mage"><b>2.300*1250.0*C</b>　<t class="goods-weight">8.880</t>吨</span>
+                        <span class="carGood-price"><b class="goods-price">4160</b>元/吨</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="process">
+            <ul>
+                <li>
+                    <div class="liLeft">是否加工</div>
+                    <div>
+                        <input id="forMake" type="checkbox" name="" value="" checked="checked" />
+                        <span>加工</span>
+                        <div class="toMake">
+                            <span>备注信息</span>
+                            <br>
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="liLeft">优惠券</div>
+                    <div>
+                        <div class="sale-list">
+                            <input type="radio" name="sale" id="saleNo" checked="checked" value="" />
+                            <label for="saleNo">不使用优惠券</label>
+                        </div>
+                        <div class="sale-list">
+                            <input type="radio" name="sale" id="saleHb" value="" />
+                            <label for="saleHb">红包：500元</label>
+                        </div>
+                        <!--                        <div class="sale-list">-->
+                        <!--                            <input type="radio" name="sale" id="saleSj" value="" />-->
+                        <!--                            <label for="saleSj">商家优惠：500元</label>-->
+                        <!--                        </div>-->
+                    </div>
+                </li>
+                <li>
+                    <div class="liLeft">白条支付</div>
+                    <div>
+                        <div class="iousNum">
+                            <div class="iousNum-list1">总额度：70000.00&nbsp;￥</div>
+                            <div class="iousNum-list1">已用额度：60000.00&nbsp;￥</div>
+                            <div class="iousNum-list3">可用额度：10000.00&nbsp;￥</div>
+                        </div>
+                        <div class="iousType">
+                            <input type="checkbox" name="" id="iousType" value="" checked="checked" />
+                            <label for="iousType">使用白条支付</label>
+                            <br>
+                            <span class="iousUse"><input type="text" id="" value="10000.00" />￥</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="init-pay">确定</div>
+
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/phone.js" type="text/javascript" charset="utf-8"></script>
+<script>
+// var makeFor = $('.forMake input');
+// if(makeFor.is(':checked')){
+//   $('.toMake').show();
+// }
+// $(".forMake input").change(function() {
+//   if ($(this).prop("checked")) {
+//     $(this).siblings('.toMake').show();
+//   } else {
+//     $(this).siblings('.toMake').hide();
+//   }
+// });
+$('#forMake').change(function () {
+  if ($(this).prop('checked')) {
+    $(this).siblings('.toMake').show();
+  } else {
+    $(this).siblings('.toMake').hide();
+  }
+});
+$('.toMake').click(function () {
+  $(this).siblings('textarea').toggle();
+});
+$('#iousType').change(function () {
+  if ($(this).prop('checked')) {
+    $(this).siblings('.iousUse').show();
+  } else {
+    $(this).siblings('.iousUse').hide();
+  }
+});
+$('.toMake').click(function () {
+  $(this).siblings('textarea').toggle();
+});
+</script>
+</body>
+</html>

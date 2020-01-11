@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>会员认证</title>
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/user.css"/>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<div class="main-user">
+			<div class="top-user"><img src="img/user-vip.png" >用户中心</div>
+			<div class="user-box clearfix">
+				<div class="user-left fl">
+					<div class="userNav"></div>
+				</div>
+				<div class="user-right fr">
+					<p class="userRight-tit"><img src="img/user/approve.png" >会员认证</p>
+					<p class="approve-tip">会员认证开通后，该用户下所有活动将视为企业行为，由该企业承担相应的权益和责任。</p>
+					<p class="approve-tit">个人资料</p>
+					<ul class="approve-box clearfix">
+						<li class="approve-list">
+							<span>姓名</span>
+							<input type="text" name="" id="userName" value="" readonly="readonly" />
+						</li>
+						<li class="approve-list">
+							<span>手机号码</span>
+							<input type="text" name="" id="userPhone" value="" readonly="readonly" />
+						</li>
+						<li class="approve-list">
+							<span>身份证号</span>
+							<input type="text" name="" id="userCard" value="" readonly="readonly" />
+						</li>
+					</ul>
+					<p class="approve-tit">企业资料</p>
+					<ul class="approve-box clearfix">
+						<li class="approve-list">
+							<span>企业名称<i>*</i></span>
+							<input type="text" name="" id="shopName" value="" placeholder="企业名称" />
+						</li>
+						<li class="approve-list">
+							<span>营业执照号<i>*</i></span>
+							<input type="text" name="" id="gongZhangName" value="" placeholder="营业执照号" />
+						</li>
+						<li class="approve-list" id="city_china_val" style="width: 100%;">
+							<span>公司地址<i>*</i></span>
+							<select class="province" id="myProvince" data-first-title="选择省" disabled="disabled"></select>
+							<select class="city" id="myCity" data-first-title="选择市" disabled="disabled"></select>
+							<select class="area" id="myArea" data-first-title="选择地区" disabled="disabled"></select>
+							<input type="text" name="" id="myAddress" value="" placeholder="详细地址" />
+						</li>
+					</ul>
+					<p class="approve-tit">开票资料</p>
+					<ul class="approve-box clearfix">
+						<li class="approve-list">
+							<span>联系电话<i>*</i></span>
+							<input type="text" name="" id="shopPhone" value="" placeholder="联系电话" />
+						</li>
+						<li class="approve-list">
+							<span>税号<i>*</i></span>
+							<input type="text" name="" id="nowCityId" value="" placeholder="税号" />
+						</li>
+						<li class="approve-list">
+							<span>开户银行<i>*</i></span>
+							<input type="text" name="" id="nowCityName" value="" placeholder="开户银行" />
+						</li>
+						<li class="approve-list">
+							<span>银行账号<i>*</i></span>
+							<input type="text" name="" id="bankNum" value="" placeholder="银行账号" />
+						</li>
+					</ul>
+					<p class="approve-tit">附件资料</p>
+					<ul class="approve-box clearfix">
+						<li class="update-img">
+							上传营业执照
+							<img id="updateImg1" src="img/user/updataImg1.png" >
+							<input name="file" class="up-choose" type="file" value="上传文件" id="file1" accept="image/png, image/jpeg, image/gif, image/jpg" multiple/>						
+							
+						</li>
+						<!-- <li class="update-img">
+							上传开票资料
+							<img id="updateImg2" src="img/user/updataImg2.png" >
+							<input class="up-choose" type="file" value="上传文件" id="file2" accept="image/png, image/jpeg, image/gif, image/jpg" multiple/>						
+						</li> -->
+						<!-- <li class="update-img">
+							上传授权书
+							<img id="updateImg3" src="img/user/updataImg3.png" >
+							<input class="up-choose" type="file" value="上传文件" id="file3" accept="image/png, image/jpeg, image/gif, image/jpg" multiple/>						
+						</li> -->
+					</ul>
+					<ul class="approve-box clearfix">
+						<li class="approve-list" style="width: 100%;">
+							<input type="checkbox" name="" id="read" value="" />
+							<label for="read">已阅读 <a href="">临钢网会员管理条例</a></label>
+						</li>
+						<li class="approve-list" style="width: 100%;">
+							<input type="button" name="" id="chooseBtn" value="提交审核" />
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 主体结束 -->
+		<div class="footerpage"></div>
+		
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/up-img.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cxselect.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			upImg('updateImg1','file1');
+			upImg('updateImg2','file2');
+			upImg('updateImg3','file3');
+			$.cxSelect.defaults.url = 'js/cityData.min.json';
+			$('#city_china_val').cxSelect({
+				selects: ['province', 'city', 'area'],
+				emptyStyle: 'none'
+			});
+		</script>
+		<script>
+		    $(function(){
+		        /*公共部分
+		         * 导航栏
+		         * footer CopyRight
+		         */
+		        $(".headerpage").load("header.html");
+		        $(".footerpage").load("footer.html");
+				$(".userNav").load("userNav.html");
+		    });
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				var tkn = getCookie(tk);
+				console.log(tkn)
+				$.ajax({
+					url: path + '/linA/getyh',
+					type:'GET',
+					beforeSend: function (XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data:{},
+					// contentType: 'application/json;charset=utf-8',
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						console.log(result)
+						// $('#userPhone').html(e.)
+						if(result != "" && result.code == 1){
+							// alert(result.msg)
+							var userData = result.user;
+							$('#userPhone').val(userData.cPhone);
+							$('#userName').val(userData.cRealname);
+							$('#userCard').val(userData.cIdCardNo);
+							
+						}
+					}
+				})
+			});
+			// 提交认证
+			$('#chooseBtn').click(function(){
+				var tkn = getCookie(tk);
+				var json = JSON.stringify({
+					cShopName: $('#shopName').val(),
+					cFactId: $('#gongZhangName').val(),
+					cProvince: $('#myProvince').val(),
+					cCity: $('#myCity').val(),
+					cDistrict: $('#myArea').val(),
+					cAddressId: $('#myAddress').val(),
+					cVer: $('#shopPhone').val(),
+					cNowCityId: $('#nowCityId').val(),
+					cNowCityName: $('#nowCityName').val(),
+					cVipCardno: $('#bankNum').val(),
+				});
+				if(!$("#read").prop('checked')){
+					alert('请勾选临钢网会员管理条例');
+				}else{
+					$.ajax({
+						url: path + '/linA/upyh',
+						type:'POST',
+						beforeSend: function (XMLHttpRequest) {
+							XMLHttpRequest.setRequestHeader("token", tkn);
+						},
+						data:json,
+						contentType: 'application/json;charset=utf-8',
+						dataType:'json', //后台返回的数据类型是json文本
+						success:function(result) {
+							console.log(result)
+							// $('#userPhone').html(e.)
+							if(result != "" && result.code == 1){
+								alert('保存成功！')
+							}else{
+								alert(result.msg)
+							}
+						}
+					})
+				}
+			})
+		</script>
+	</body>
+</html>

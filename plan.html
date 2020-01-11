@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>拼单</title>
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/shop.css"/>
+		<link rel="stylesheet" type="text/css" href="css/ulList.css"/>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<!-- <div class="main-pin"></div> -->
+		<div class="main-out">
+			<div class="main-cont pin-box clearfix" style="margin-top: 0;">
+				<div class="group-tit">
+					<h1>我的采购计划</h1>
+					<a class="group-planAdd" href="plan-add.html"><i class="fa fa-plus" aria-hidden="true"></i>添加采购计划</a>
+					<!-- <p>钢板拼着买，净尺寸！零浪费！</p> -->
+				</div>
+				<form action="" method="">
+					<div class="group-list group-good">
+						<h2>计划购买商品</h2>
+						<ul>
+							<li class="plan-list">
+								<div class="plan-time">2019-11-30</div>
+								<div class="plan-cont">
+									<span>冷轧卷</span>
+									<span><b>1*1*1</b></span>
+									<span class="plan-weight"><b>1</b>吨</span>
+								</div>
+							</li>
+						</ul>
+						
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- 主体结束 -->
+		<!-- 底部 -->
+		<div class="footerpage"></div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		    function add(){
+		        var $group = $(".group-good .group-type").first().clone();       //增加一行,克隆第一个对象
+		        $(".group-good").append($group);
+		    }
+		 
+		    function del(){
+		        $(".group-good .group-type:not(:first)").last().remove();      //移除最后一行,并且保留前两行
+		    }
+		</script>
+		<script>
+		    $(function(){
+		        /*公共部分
+		         * 导航栏
+		         * footer CopyRight
+		         */
+		        $(".headerpage").load("header.html");
+		        $(".footerpage").load("footer.html");
+		    });
+		</script>
+	</body>
+</html>

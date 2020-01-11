@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>详情</title>
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/ulList.css"/>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<div class="main-banner infor-banner">
+			<div class="banner-name">
+				详情页板块归属
+			</div>
+		</div>
+		<div class="main-cont clearfix">
+			<!-- 页面左侧 -->
+			<div class="cont-left fl" style="margin-top: 0;">
+				<!-- <div class="left-ul">
+					<span>
+						您现在的位置:
+						<a href="">首页</a>
+						>
+						<a href="">一级</a>
+						>
+						<a href="">二级</a>
+						>
+						&nbsp;详情
+					</span>
+				</div> -->
+				<div class="detail-cont">
+					<h1>详情页标题</h1>
+					<div class="detail-get">
+						<span>编辑:</span>
+						xxx
+						<span>来源:</span>
+						<span>时间:</span>
+						2019-06-14 11:09:00
+						<span>浏览:</span>
+						<span class="detail-num">645</span> 次
+					</div>
+					<div class="detail-mage">
+						详情页内容
+						<div class="detail-video">
+							<iframe height=400 width=800 src='http://player.youku.com/embed/XNDQ2ODUwNDY0NA==' frameborder=0 'allowfullscreen'></iframe>
+							<!-- <video width="800" height="400" controls="" poster="/statics/images/video_about.jpg">
+							        <source src="/uploadfile/video/minhui.mp4" type="video/mp4">
+							</video> -->
+						</div>
+						<!-- <div class="detail-btn clearfix">
+							<a class="detailBtn-l fl" href="">&lt; 上一篇</a>
+							<a class="detailBtn-r fr" href="javascript:alert('最后一页');">下一篇 &gt;</a>
+						</div> -->
+					</div>
+				</div>
+			</div>
+			<!-- 页面右侧 -->
+			<div class="cont-right fr">
+				<div class="right-list">
+					<div class="right-tit">行业动态</div>
+					<ul class="right-link">
+						<li>
+							<a href="">信息列表</a>
+							<span>11-12</span>
+						</li>
+						<li>
+							<a href="">信息列表</a>
+							<span>11-12</span>
+						</li>
+						<li>
+							<a href="">信息列表</a>
+							<span>11-12</span>
+						</li>
+					</ul>
+				</div>
+				<div class="right-list">
+					<div class="right-tit">精彩活动</div>
+					<ul class="right-event clearfix">
+						<li>
+							<a href="">
+								<span class="event-img">
+									<img src="img/live.jpg" >
+								</span>
+								<span class="event-mage">福利第１弹 | 幸运大转盘，抽奖乐翻天</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<span class="event-img">
+									<img src="img/live.jpg" >
+								</span>
+								<span class="event-mage">福利第１弹 | 幸运大转盘，抽奖乐翻天</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="right-list">
+					<div class="right-tit">临钢学院</div>
+					<ul class="right-link">
+						<li>
+							<a href="">信息列表</a>
+							<span>11-12</span>
+						</li>
+						<li>
+							<a href="">信息列表</a>
+							<span>11-12</span>
+						</li>
+						<li>
+							<a href="">信息列表</a>
+							<span>11-12</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 主体结束 -->
+		<!-- 底部 -->
+		<div class="footerpage"></div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				  //获取url中的参数
+				       function getUrlParam(name) {
+							var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+							var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+							if (r != null) return unescape(r[2]); return null; //返回参数值
+				       }
+				
+				       //接收URL中的参数booksId
+				       var id = getUrlParam('videoid');
+				       console.log('id:'+id);
+				
+				$.ajax({
+					type:'get',
+					url:'js/index.json',
+					dataType:"json",
+					success:function(res,status){
+						console.log(status)
+						$.each(res.books,function(idx,val){
+							if(id == val.id){
+								var str = "<img src='"+val.imgUrl+"'/><p>名字:"+val.title+"</p><p>出版社:"+val.publish+"</p><p>页数:"+val.num+"</p><p>简介:"+val.desc+"</p>";
+								console.log('index:'+idx);
+								
+							}
+							$('.detail-mage').append(str);
+						})
+					}
+				})
+			})
+		</script>
+		<script>
+		    $(function(){
+		        /*公共部分
+		         * 导航栏
+		         * footer CopyRight
+		         */
+		        $(".headerpage").load("header.html");
+		        $(".footerpage").load("footer.html");
+		    });
+		</script>
+	</body>
+</html>

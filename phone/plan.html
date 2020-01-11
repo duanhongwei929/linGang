@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/all.css" />
+    <link rel="stylesheet" type="text/css" href="css/detail.css" />
+    <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/phone.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body style="padding-top: 50px;padding-bottom: 50px;">
+<div id="cart-head" class="show">
+    <div class="cart-head">
+        <a class="return" href="javascript:history.back(-1);">
+            <span class="arrow-left"></span>
+        </a>
+        <div class="head-title">我的采购计划</div>
+        <a class="head-right" href="play-cg.html">新增</a>
+    </div>
+</div>
+<form action="" method="">
+    <div class="plan-box">
+        <ul>
+            <li>
+                <a href="plan-detail.html">
+                    <div class="plan-head">
+                        <span class="plan-time">2019-12</span>
+                        <span class="plan-tip"></span>
+                    </div>
+                    <div class="plan-cont">
+                        <div class="plan-mall">
+                            <span class="plan-mage1">0　冷轧卷　0</span>
+                            <span class="plan-mage2"><b>1*1*1</b></span>
+                            <span class="plan-mage3"><b>1</b>吨</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</form>
+
+<!--底部导航-->
+<div class="footerpage"></div>
+
+<script>
+$(function () {
+  /*公共部分
+   * 导航栏
+   * footer CopyRight
+   */
+  $('.footerpage').load('footer.html');
+});
+</script>
+</body>
+</html>

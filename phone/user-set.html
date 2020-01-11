@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/all.css" />
+		<link rel="stylesheet" type="text/css" href="css/user.css" />
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body style="padding-top: 50px;">
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="javascript:history.back(-1);">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">用户中心</div>
+				<a class="head-shop" href="phone.html">
+					<span class="foot-icon foot-home"></span>
+					<p>首页</p>
+				</a>
+			</div>
+		</div>
+
+		<div class="account">
+			<p class="userRight-tit"><img src="img/user/set.png">安全设置</p>
+			<ul class="userRight-set">
+				<li class="on">个人资料</li>
+				<li>登录密码</li>
+			</ul>
+			<div class="userSet">
+				<div class="userSet-type show">
+					<div class="userSet-list">
+						<label>姓名</label>
+						<input class="userSet-ipt userSet-ipt1" type="text" name="" id="userName" value="" />
+					</div>
+					<div class="userSet-list">
+						<label>昵称</label>
+						<input class="userSet-ipt userSet-ipt1" type="text" name="" id="nickName" value="" />
+					</div>
+					<div class="userSet-list">
+						<label>证件</label>
+						<input class="userSet-ipt userSet-ipt1" type="text" name="" id="userCard" value="" />
+					</div>
+					<div class="userSet-list" id="userSex">
+						<label>性别</label>
+						<span class="userSet-sex" style="margin-left: 60px;"><input type="radio" name="sex" id="" value="男" />男</span>
+						<span class="userSet-sex"><input type="radio" name="sex" id="" value="女" />女</span>
+					</div>
+					<input class="userSet-btn" type="button" name="" id="mainBtn" value="保存" />
+				</div>
+				<div class="userSet-type">
+					<div class="userSet-list">
+						<label style="width: 65px;">新密码</label>
+						<input style="padding-left: 80px;" class="userSet-ipt userSet-ipt2" type="password" name="" id="myPass" value="" />
+					</div>
+					<div class="userSet-list">
+						<label style="width: 65px;">确认密码</label>
+						<input style="padding-left: 80px;" class="userSet-ipt userSet-ipt2" type="password" name="" id="myNewPass" value="" />
+					</div>
+					<input class="userSet-btn" type="button" name="" id="passBtn" value="保存" />
+				</div>
+			</div>
+		</div>
+
+		<!--底部-->
+		<div class="footerpage"></div>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$('.footerpage').load('footer.html');
+			});
+		</script>
+		<script type="text/javascript">
+			$('.userRight-set li').click(function() {
+				$(this).addClass('on').siblings().removeClass('on');
+				$('.userSet .userSet-type').eq($(this).index()).addClass('show').siblings().removeClass('show');
+			});
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				var tkn = getCookie(tk);
+				// console.log(tkn)
+				$.ajax({
+					url: path + '/linA/getyh',
+					type: 'GET',
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					data: {},
+					// contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					success: function(result) {
+						console.log(result)
+						// $('#userPhone').html(e.)
+						if (result != "" && result.code == 1) {
+							// alert(result.msg)
+							var userData = result.user;
+							$('#nickName').val(userData.cUsername);
+							$('#userName').val(userData.cRealname);
+							$('#userCard').val(userData.cIdCardNo);
+							$("#userSex input[name='sex'][value='userData.cSex']").prop(':checked')
+
+						}
+					}
+				})
+			});
+			$('#mineBtn').click(function() {
+				var tkn = getCookie(tk);
+				var idcardReg =
+					/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/;
+				var nameLength = /^\S{1,10}$/;
+				var nickName = $('#nickName').val();
+				var userName = $('#userName').val();
+				var userCard = $('#userCard').val();
+				var userSex = $("#userSex input[name='sex']").filter(':checked').val();
+				var json = JSON.stringify({
+					cUsername: nickName,
+					cRealname: userName,
+					cIdCardNo: userCard,
+					cSex: userSex
+				})
+				if (!nameLength.test(nickName)) {
+					alert('长度必须在1到10之间');
+					$('#nickName').val('');
+				} else if (!nameLength.test(userName)) {
+					alert('长度必须在1到10之间');
+					$('#userName').val('');
+				} else if (!idcardReg.test(userCard)) {
+					alert('请输入正确的身份证号');
+					$('#userCard').val('');
+				} else {
+					$.ajax({
+						url: path + '/linA/upyh',
+						type: 'POST',
+						beforeSend: function(XMLHttpRequest) {
+							XMLHttpRequest.setRequestHeader("token", tkn);
+						},
+						data: json,
+						contentType: 'application/json;charset=utf-8',
+						dataType: 'json', //后台返回的数据类型是json文本
+						success: function(result) {
+							console.log(result)
+							// $('#userPhone').html(e.)
+							if (result != "" && result.code == 1) {
+								alert('保存成功！')
+							}
+						}
+					})
+				}
+			});
+			// 密码修改
+			$('#passBtn').click(function() {
+				var tkn = getCookie(tk);
+				var checkPass = /^[a-zA-Z0-9_-]{6,16}$/;
+				var myPass = $('#myPass').val();
+				var myNewPass = $('#myNewPass').val();
+				var json = JSON.stringify({
+					cPassword: myPass,
+					passwordAgain: myNewPass,
+				})
+				if (!checkPass.test(myPass)) {
+					alert('长度必须在6到16之间');
+					$('#myPass').val('');
+				} else if (!checkPass.test(myNewPass)) {
+					alert('长度必须在6到16之间');
+					$('#myNewPass').val('');
+				} else {
+					$.ajax({
+						url: path + '/linA/upyh',
+						type: 'POST',
+						beforeSend: function(XMLHttpRequest) {
+							XMLHttpRequest.setRequestHeader("token", tkn);
+						},
+						data: json,
+						contentType: 'application/json;charset=utf-8',
+						dataType: 'json', //后台返回的数据类型是json文本
+						success: function(result) {
+							console.log(result)
+							// $('#userPhone').html(e.)
+							if (result != "" && result.code == 1) {
+								alert('保存成功！')
+							} else {
+								alert(result.msg)
+							}
+						}
+					})
+				}
+			})
+		</script>
+	</body>
+</html>

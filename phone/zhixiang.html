@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>临钢智享</title>
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/all.css" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/quote.css" />
+</head>
+<body style="padding-top: 50px;">
+<div id="cart-head" class="show">
+    <div class="cart-head">
+        <a class="return" href="javascript:history.back(-1);">
+            <span class="arrow-left"></span>
+        </a>
+        <div class="head-title">临钢智享</div>
+		<a class="head-shop" href="phone.html">
+			<span class="foot-icon foot-home"></span>
+			<p>首页</p>
+		</a>
+    </div>
+</div>
+<!--列表-->
+<div class="video-box">
+   <div class="video-list clearfix">
+		<div class="videoList">
+			<video controls="" >
+			    <source src="video/lg-video/机器人切割.mp4" type="video/mp4">
+			</video>
+			<p>机器人切割</p>
+		</div>
+		<div class="videoList">
+			<video controls="controls">
+				<source src="video/lg-video/灭火器生产流水线.mp4" type="video/mp4">
+			</video>
+			<p>灭火器生产流水线</p>
+		</div>
+		<div class="videoList">
+			<video controls="controls">
+				<source src="video/lg-video/激光切割.mp4" type="video/mp4">
+			</video>
+			<p>激光切割</p>
+		</div>
+		<div class="videoList">
+			<video controls="controls">
+				<source src="video/lg-video/窄带开平线.mp4" type="video/mp4">
+			</video>
+			<p>窄带开平线</p>
+		</div>
+		<div class="videoList">
+			<video controls="controls">
+				<source src="video/lg-video/纵剪分条线.mp4" type="video/mp4">
+			</video>
+			<p>纵剪分条线</p>
+		</div>
+   </div>
+</div>
+<div class="index-none">
+	<p>我已经到达底线了哦\(^o^)/~</p>
+</div>
+<!--底部导航-->
+<div class="footerpage"></div>
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/phone.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+window.onmousewheel = function () {
+  if (window.scrollY > 100) {
+    $('#cart-head').show();
+  } else {
+    $('#cart-head').hide();
+    $('.cart-menu').hide();
+  }
+};
+
+$('.arrow-menu').click(function () {
+  $('.cart-menu').show();
+});
+var myswiper = new Swiper('.swiper-lb', {
+  loop: true,
+  autoplay: {
+    delay: 2000,
+  },
+});
+var qeswiper = new Swiper('.index-qe', {
+  direction: 'vertical',
+  slidesPerView: 3,
+  slidesPerGroup: 1,
+  loop: true,
+  autoplay: {
+    delay: 2000,
+  },
+});
+var videoswiper = new Swiper('.video-swiper', {
+  slidesPerView: 1.5,
+});
+$('.main-tab li').click(function () {
+  $(this).addClass('on').siblings().removeClass('on');
+  $('.cont-left ul').eq($(this).index()).addClass('show').siblings().removeClass('show');
+})
+</script>
+<script>
+	$(function(){
+	  /*公共部分
+	   * 导航栏
+	   * footer CopyRight
+	   */
+	  $(".footerpage").load("footer.html");
+	});
+</script>
+</body>
+</html>

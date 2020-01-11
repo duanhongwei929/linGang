@@ -1,0 +1,40 @@
+<!--底部导航-->
+<div class="footer">
+    <ul class="clearfix">
+        <li>
+            <a href="information.html">
+                <span class="foot-icon foot-zixun"></span>
+                <p>咨讯</p>
+            </a>
+        </li>
+        <li>
+            <a href="shop.html">
+                <span class="foot-icon foot-mall"></span>
+                <p>商城</p>
+            </a>
+        </li>
+        <li>
+            <a href="zhixiang.html">
+                <span class="foot-icon foot-zhx"></span>
+                <p>智享</p>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" onclick="uOnLine('user.html')">
+                <span class="foot-icon foot-user"></span>
+                <p>会员</p>
+            </a>
+        </li>
+    </ul>
+</div>
+<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/all.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".footer li a").each(function() {
+            if($(this)[0].href == String(window.location)) {
+				$(this).parents("li").addClass("active").siblings().removeClass('active');
+            }
+        });
+    })
+</script>

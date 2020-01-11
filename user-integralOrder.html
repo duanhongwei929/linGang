@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>积分订单</title>
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/user.css"/>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<div class="main-user">
+			<div class="top-user"><img src="img/user-vip.png" >用户中心</div>
+			<div class="user-box clearfix">
+				<div class="user-left fl">
+					<div class="userNav"></div>
+				</div>
+				<div class="user-right fr">
+					<p class="userRight-tit clearfix">
+						<img src="img/user/order.png" >
+						积分订单
+					</p>
+					<ul class="integral-order clearfix">
+						<li class="on">全部订单</li>
+						<span>|</span>
+						<li>审核中</li>
+						<span>|</span>
+						<li>待发货</li>
+						<span>|</span>
+						<li>已发货</li>
+					</ul>
+					<div class="intOrder">
+						<table class="intOrder-table">
+							<thead>
+								<tr>
+									<th>商品</th>
+									<th>消耗</th>
+									<th>时间</th>
+									<th>收货人</th>
+									<th>交易状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<img class="intOrder-img" src="img/dynamic2.jpg" >
+										<div class="intOrder-name">
+											积分商品
+										</div>
+									</td>
+									<td>99</td>
+									<td>2019-12-13</td>
+									<td>
+										<p>姓名</p>
+										<p>12345678901</p>
+									</td>
+									<td class="intOrder-on">审核中</td>
+									<td><img class="intOrder-del" src="img/user/del.png" ></td>
+								</tr>
+								<tr>
+									<td>
+										<img class="intOrder-img" src="img/dynamic2.jpg" >
+										<div class="intOrder-name">
+											积分商品
+										</div>
+									</td>
+									<td>99</td>
+									<td>2019-12-13</td>
+									<td>
+										<p>姓名</p>
+										<p>12345678901</p>
+									</td>
+									<td class="intOrder-old">已发货</td>
+									<td><img class="intOrder-del" src="img/user/del.png" ></td>
+								</tr>
+								<tr>
+									<td>
+										<img class="intOrder-img" src="img/dynamic2.jpg" >
+										<div class="intOrder-name">
+											积分商品
+										</div>
+									</td>
+									<td>99</td>
+									<td>2019-12-13</td>
+									<td>
+										<p>姓名</p>
+										<p>12345678901</p>
+									</td>
+									<td class="intOrder-off">待发货</td>
+									<td><img class="intOrder-del" src="img/user/del.png" ></td>
+								</tr>
+							</tbody>
+							
+						</table>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<!-- 主体结束 -->
+		<div class="footerpage"></div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function(){
+				/*公共部分
+				 * 导航栏
+				 * footer CopyRight
+				 */
+				$(".headerpage").load("header.html");
+				$(".footerpage").load("footer.html");
+				$(".userNav").load("userNav.html");
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/all.css" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/quote.css" />
+</head>
+<body style="padding-top: 50px;">
+<div id="cart-head" class="show">
+    <div class="cart-head">
+        <a class="return" href="javascript:history.back(-1);">
+            <span class="arrow-left"></span>
+        </a>
+        <div class="head-title">拼购</div>
+        <a class="head-shop" href="phone.html">
+            <span class="foot-icon foot-home"></span>
+            <p>首页</p>
+        </a>
+    </div>
+</div>
+<!--列表-->
+<div class="box-list">
+    <div class="cont-title">
+        <ul class="main-tab">
+            <li class="on"><a href="javascript:void(0)">正在拼单</a></li>
+            <li><a href="javascript:void(0)">我参与的</a></li>
+            <li><a href="pinAdd.html">发起拼单</a></li>
+        </ul>
+    </div>
+    <div class="cont-left">
+		<ul class="show car-box">
+			<li class="">
+			    <div class="car-list">
+			        <div class="car-address" style="">
+			            <span style="font-size: 20px;">泰州库</span>
+			            <span>剩余<b>5</b>吨</span>
+			            <div style="display: inline-block;">
+			                <input class="planNum" type="text" name="" id="" value="" placeholder="订单量" />
+			                <i>/吨</i>
+			                <span class="subPlan">提交</span>
+			            </div>
+			        </div>
+			        <div class="car-goods" style="padding: 0.2rem 0;">
+			            <span>日照　酸洗卷　SPHC</span>
+			            <span class="carGood-mage"><b>2.300*1250.0*C</b>　<t
+			                    class="goods-weight">8.880</t>吨</span>
+			            <span class="carGood-price"><b class="goods-price">4160</b>元/吨</span>
+			        </div>
+			    </div>
+			    <div class="gp-table">
+			        <div class="gp-first">
+			            <div>
+			                <div class="pingdan-hd">发起人</div>
+			                <span>刘某某</span>
+			                <span>137****7890</span>
+			                <span>9吨</span>
+			            </div>
+			            <div>
+			                <div class="pingdan-hd"></div>
+			                <span>李某某</span>
+			                <span>137****7890</span>
+			                <span>0.5吨</span>
+			            </div>
+			        </div>
+			    </div>
+			</li>
+		</ul>
+        
+       <ul class="car-box">
+       	<li class="">
+       	    <div class="car-list">
+       	        <div class="car-address" style="">
+       	            <span style="font-size: 20px;">泰州库</span>
+       	            <span>剩余<b>5</b>吨</span>
+       	            <div style="display: inline-block;">
+       	                <input class="planNum" type="text" name="" id="" value="" placeholder="订单量" />
+       	                <i>/吨</i>
+       	                <span class="subPlan">提交</span>
+       	            </div>
+       	        </div>
+       	        <div class="car-goods" style="padding: 0.2rem 0;">
+       	            <span>日照　酸洗卷　SPHC</span>
+       	            <span class="carGood-mage"><b>2.300*1250.0*C</b>　<t
+       	                    class="goods-weight">8.880</t>吨</span>
+       	            <span class="carGood-price"><b class="goods-price">8888</b>元/吨</span>
+       	        </div>
+       	    </div>
+       	    <div class="gp-table">
+       	        <div class="gp-first">
+       	            <div>
+       	                <div class="pingdan-hd">发起人</div>
+       	                <span>刘某某</span>
+       	                <span>137****7890</span>
+       	                <span>9吨</span>
+       	            </div>
+       	            <div>
+       	                <div class="pingdan-hd"></div>
+       	                <span>李某某</span>
+       	                <span>137****7890</span>
+       	                <span>0.5吨</span>
+       	            </div>
+       	        </div>
+       	    </div>
+       	</li>
+       </ul>
+    </div>
+</div>
+<div class="index-none">
+    <p>我已经到达底线了哦\(^o^)/~</p>
+</div>
+<!--底部导航-->
+<div class="footerpage"></div>
+
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/phone.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+$('.main-tab li').click(function () {
+  $(this).addClass('on').siblings().removeClass('on');
+  $('.cont-left ul').eq($(this).index()).addClass('show').siblings().removeClass('show');
+})
+</script>
+
+<script>
+$(function(){
+  /*公共部分
+   * 导航栏
+   * footer CopyRight
+   */
+  $(".footerpage").load("footer.html");
+});
+</script>
+</body>
+</html>

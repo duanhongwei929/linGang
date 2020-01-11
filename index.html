@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>临钢网</title>
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css?vid=0108"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css?vid=0108"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css?vid=0108"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css?vid=0108"/>
+		<script type="text/javascript">
+			if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+				window.location.href = "phone/phone.html";
+			}
+		</script>
+		<style type="text/css">
+			.dialog-box{
+				display: block;
+			}
+		</style>
+	</head>
+	<body style="background: #f5f5f5;">
+		<!-- 头部 -->
+		<div class="headerpage"></div>
+		<div class="head-btm-bg">
+			<div class="head-btm-box clearfix">
+				<div class="head-swiper fl">
+					<a class="arrow-list headSwip-left" href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+					<a class="arrow-list headSwip-right" href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+					<div class="swiper-container headSwip-banner">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<a href="">
+									<img src="img/index/banner1.jpg" >
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="">
+									<img src="img/index/banner2.jpg" >
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="">
+									<img src="img/index/banner3.jpg" >
+								</a>
+							</div>
+						</div>
+						<div class="pagination"></div>
+					</div>
+				</div>
+				<div class="head-login-box fr">
+					<div class="user-box">
+						<div class="user-hello clearfix">
+							<span class="user-img fl">
+								<img src="img/user-title.jpg" >
+							</span>
+							<p class="user-name">Hi，您好!</p>
+							<p class="user-well">欢迎到来!</p>
+						</div>
+						<div class="user-btn clearfix">
+							<a class="user-login user-show1 fl" href="login.html">会员登录</a>
+							<a class="user-login user-show2 fl hidden" href="check-in.html">签到</a>
+							<a class="user-regist user-show1 fr" href="login.html">免费注册</a>
+							<a class="user-regist user-show2 fr hidden" href="user-person.html">个人中心</a>
+						</div>
+					</div>
+					<div class="user-type">
+						<h3>临钢交易方式</h3>
+						<ul class="clearfix">
+							<li>
+								<a class="user-type-list userType1" href="shop.html">
+									<i style="font-size: 24px;" class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+									<span>立即采购</span>
+								</a>
+							</li>
+							<li>
+								<a class="user-type-list userType2" href="group-pin.html">
+									<i style="font-size: 18px;" class="fa fa-handshake-o" aria-hidden="true"></i>
+									<span>合伙拼购</span>
+								</a>
+							</li>
+							<li>
+								<a class="user-type-list userType3" href="plan.html">
+									<i style="font-size: 20px;margin-right: 13px;" class="fa fa-paper-plane-o" aria-hidden="true"></i>
+									<span>计划采购</span>
+								</a>
+							</li>
+							<li>
+								<a class="user-type-list userType4" href="baitiao.html">
+									<i style="font-size: 20px;margin-right: 17px;" class="fa fa-file-text-o" aria-hidden="true"></i>
+									<span>临钢白条</span>
+								</a>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 页面主体内容 -->
+		<div class="main">
+			<!-- 快捷按钮 -->
+			<div class="btnType"></div>
+			<!-- 今日卷价、卷价趋势 -->
+			<div class="main-price clearfix">
+				<div class="index-price fl" style="width: 822px;margin-left: 0;">
+					<div class="index-tit">
+						<span class="indexTit-bg"></span>
+						<span class="indexTit-txt">今日卷价</span>
+						<a id="price-select" href="javascript:;">
+							<img src="img/price-point.png" >
+							<span class="city"></span>
+							<span>[切换城市]</span>
+						</a>
+					</div>
+					<div class="hide-city">
+						<div class="hide-inner">
+						<!-- 箭头 -->
+							<b></b>
+						<!-- 箭头结束 -->
+							
+						</div>
+					</div>
+					
+					<div class="swiper-container price-swiper list-left">
+						<div class="swiper-wrapper">
+							
+						</div>
+						<a class="arrow-list price-left" href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+						<a class="arrow-list price-right" href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+						
+					</div>
+				</div>
+				<div class="index-chart fr">
+					<div class="index-tit">
+						<span class="indexTit-bg"></span>
+						<span class="indexTit-txt">卷价趋势</span>
+					</div>
+					<div class="chart-box">
+						<div class="chart-trend" id="chart-trend">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-list swiper-container sucSwiper">
+				<div class="swiper-wrapper">
+				</div>
+				
+			</div>
+			<!-- <img class="main-list" src="img/index-banner.png" > -->
+			<!-- 临钢优选 -->
+			<div class="main-shop clearfix">
+				<div class="index-shop fl">
+					<div class="index-tit">
+						<span class="indexTit-bg"></span>
+						<span class="indexTit-txt">临钢优选</span>
+					</div>
+					<div class="shop-box">
+						<ul class="shop-list clearfix">
+							<!-- <li class="active">江苏</li>
+							<li>上海</li> -->
+						</ul>
+						<ul class="shop-swiper">
+							
+						</ul>
+					</div>
+				</div>
+				<div class="index-deal fr">
+					<!-- <div class="index-tit">
+						<span class="indexTit-bg"></span>
+						<span class="indexTit-txt">最新成交</span>
+					</div> -->
+					<div class="deal-tit">
+						<img src="img/new-deal.png" >最新成交
+					</div>
+					<div class="deal-swiper swiper-container">
+						<ul class="swiper-wrapper clearfix">
+
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- 供应链 -->
+			<div class="main-list">
+				<div class="index-supply clearfix">
+					<img class="supply-left fl" src="img/supply-l.png">
+					<img class="fl" style="width: 220px;height: 350px;margin: 10px;" src="img/supply-coke.png" >
+					<div class="supply-proce fl">
+						<div class="proce-slide">
+							<span class="supply-line1">仓储加工中心</span>
+							<span class="supply-line2">
+								<i class="fa fa-tripadvisor" aria-hidden="true"></i>
+								 冷镀 
+								 <i>开平</i>
+							</span>
+							<a class="supply-btn" href="javascript:;">查看费用</a>
+							<img class="fy-img img-ys1" src="img/index/img-ys1.png" >
+						</div>
+						<div class="proce-slide">
+							<span class="supply-line1">仓储加工中心</span>
+							<span class="supply-line2">
+								<i class="fa fa-tripadvisor" aria-hidden="true"></i>
+								 冷镀 
+								 <i>分条</i>
+							</span>
+							<a class="supply-btn" href="javascript:;">查看费用</a>
+							<img class="fy-img img-ys2" src="img/index/img-ys2.png" >
+						</div>
+					</div>
+					<div class="supply-car fl">
+						<img src="img/supply-car.png" >
+						<div class="proce-slide">
+							<span class="supply-line1">物流服务</span>
+							<span class="supply-line2">
+								<i class="fa fa-truck" aria-hidden="true"></i>
+								运费表
+								 <i></i>
+							</span>
+							<a class="supply-btn" href="javascript:;">查看费用</a>
+							<img class="fy-img img-jg" src="img/index/img-jg.png" >
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="main-news">
+				<div class="dynamic-tit">
+					<span class="dynamic-txt">行业新闻</span>
+					<span class="dynamic-bg"></span>
+					<span class="dynamic-en">News Center</span>
+				</div>
+				<div class="dynamic-box clearfix">
+					<div class="dynamc-left fl">
+						<div class="dynamicLeft">
+							<a href="list-details.html">
+								<img src="img/dynamic.jpg" >
+								<span class="dynamicLeft-tit">方大九钢成功炼出DBX300钢种</span>
+								<span class="dynamicLeft-txt">中冶南方自主研发的首套全自动的首套全自动出钢系统在武钢热试成功铁矿石期权助力服务钢铁行业</span>
+								<span class="dynamicLeft-time">2019-11-11</span>
+							</a>
+						</div>
+						<div class="dynamicLeft">
+							<a href="list-details.html">
+								<img src="img/dynamic.jpg" >
+								<span class="dynamicLeft-tit">方大九钢成功炼出DBX300钢种</span>
+								<span class="dynamicLeft-txt">中冶南方自主研发的首套全自动的首套全自动出钢系统在武钢热试成功铁矿石期权助力服务钢铁行业</span>
+								<span class="dynamicLeft-time">2019-11-11</span>
+							</a>
+						</div>
+						<div class="dynamicLeft">
+							<a href="list-details.html">
+								<img src="img/dynamic.jpg" >
+								<span class="dynamicLeft-tit">方大九钢成功炼出DBX300钢种</span>
+								<span class="dynamicLeft-txt">中冶南方自主研发的首套全自动的首套全自动出钢系统在武钢热试成功铁矿石期权助力服务钢铁行业</span>
+								<span class="dynamicLeft-time">2019-11-11</span>
+							</a>
+						</div>
+						<a class="dynamic-more" href="information.html">查看更多 &gt;&gt;</a>
+					</div>
+					<div class="dynamc-right fr">
+						<div class="dynamcR-top">
+							<div class="dynamcR-tit clearfix">
+								<img src="img/dynamc-news.png" >今日快讯
+								<a href="information.html">更多&gt;&gt;</a>
+							</div>
+							<ul>
+								<li>
+									<a href="#">
+										5日昨唐山、昌黎普方坯出厂结3460稳，贸易商含税部分报3570，迁安3460。
+									</a>
+									<span class="live-btm-time">2019-11-11</span>
+								</li>
+								<li>
+									<a href="#">
+										5日昨唐山、昌黎普方坯出厂结3460稳，贸易商含税部分报3570，迁安3460。
+									</a>
+									<span class="live-btm-time">2019-11-11</span>
+								</li>
+								<li>
+									<a href="#">
+										5日昨唐山、昌黎普方坯出厂结3460稳，贸易商含税部分报3570，迁安3460。
+									</a>
+									<span class="live-btm-time">2019-11-11</span>
+								</li>
+							</ul>
+						</div>
+						<div class="dynamcR-btm">
+							<div class="dynamcR-tit clearfix">
+								<img src="img/dynamc.png" >精彩活动
+								<a href="information.html">更多&gt;&gt;</a>
+							</div>
+							<div class="dynamcR-live">
+								<img src="img/hd.jpg" >
+								<img src="img/live.jpg" >
+							</div>
+						</div>
+					</div>
+				</div>	
+				
+			</div>
+			<img class="main-list" src="img/index-banner.png" >
+			<div class="main-live clearfix">
+				<div class="mainLive-left fl">
+					<div class="dynamcR-tit clearfix">
+						<img src="img/dynamc-video.png" >
+						临钢视频
+						<a href="video.html">更多 &gt;&gt;</a>
+					</div>
+					<video width="480" height="286" controls="controls">
+						<source src="video/index/摆剪一体线.mp4" type="video/mp4">
+					</video>
+					<!-- <iframe height=286 width=480 src='http://player.youku.com/embed/XNDQ2ODUwNDY0NA==' frameborder=0 'allowfullscreen'></iframe> -->
+				</div>
+				<div class="mainLive-right fr">
+					<div class="liveRight-top clearfix">
+						<div class="liveRight-tit fl">
+							<!-- <img src="img/dynamc-dt.png" >临钢动态 -->
+							<img src="img/dynamc-bg.png" >
+						</div>
+						<div class="liveTop-mage fr">
+							<a href="list-details.html">
+								<img src="img/dynamic2.jpg" >
+								<h3>2017第三届中国（嘉兴）国际集成吊顶产业博览会</h3>
+								<p>临钢网新闻观点主要发布找钢最新动态，可以快速了解临钢网实时新闻</p>
+							</a>
+						</div>
+					</div>
+					<div class="liveRight-btm clearfix">
+						<div class="liveBtm-mage fl">
+							<a href="list-details.html">
+								<img src="img/dynamic.jpg" >
+								<h3>2017第三届中国（嘉兴）国际集成吊顶产业博览会</h3>
+								<p>临钢网新闻观点主要发布找钢最新动态，可以快速了解临钢网实时新闻</p>
+							</a>
+						</div>
+						<div class="liveBtm-tit fr">
+							<a href="team-dynamic.html">
+								查看更多
+								<br>
+								<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		
+		<!-- 底部 -->
+		<div class="footerpage"></div>
+		<!-- 红包 -->
+		<div class="hb-mb hidden"></div>
+		<div class="hb hidden">
+			<img class="apart" src="img/index/hb.png">
+			<img class="hb-close" src="img/user/close.png" >
+			<span class="hb-mage">恭喜抽中<br><b>500</b>元优惠券</span>
+		</div>
+		<!-- 红包结束 -->
+		<!-- 费用 -->
+		<div class="fy-mb"></div>
+		
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/idangerous.swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/charts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+				$(".apart").click(function() {
+					$('.hb').addClass("shake");
+					setTimeout(function() {
+						$(".hb").removeClass("shake");
+						$('.hb-mage').fadeIn()
+					}, 2000);
+				});
+				$('.hb-close').click(function(){
+					$('.hb').hide();
+					$('.hb-mb').hide();
+				});
+		</script>
+		<script type="text/javascript">
+			var headSwiper = new Swiper('.headSwip-banner',{
+				autoplay : 2000,
+				pagination: '.pagination',
+				loop:true,
+				grabCursor: true,
+				paginationClickable: true,
+				//用户操作swiper之后，是否禁止autoplay.默认为true：停止。
+				autoplayDisableOnInteraction:false,
+				//拖动释放时不会输出信息，阻止click冒泡。拖动Swiper时阻止click事件。
+				preventLinksPropagation:true,
+			});
+			$('.headSwip-left').on('click', function(e){
+				e.preventDefault()
+				headSwiper.swipePrev()
+			});
+			$('.headSwip-right').on('click', function(e){
+				e.preventDefault()
+				headSwiper.swipeNext()
+			});
+			var supplyCar = new Swiper('.supplyCar-swiper',{
+				// autoplay : 2000,
+				loop:true,
+				slidesPerView : 2,
+				slidesPerGroup : 1,
+			});
+			$('.supplyCar-left').on('click', function(e){
+				e.preventDefault()
+				supplyCar.swipePrev()
+			});
+			$('.supplyCar-right').on('click', function(e){
+				e.preventDefault()
+				supplyCar.swipeNext()
+			});
+			var supplyCoke = new Swiper('.supplyCoke-swiper',{
+				// autoplay : 2000,
+				loop:true,
+				slidesPerView : 2,
+				slidesPerGroup : 1,
+			});
+			$('.supplyCoke-left').on('click', function(e){
+				e.preventDefault()
+				supplyCoke.swipePrev()
+			});
+			$('.supplyCoke-right').on('click', function(e){
+				e.preventDefault()
+				supplyCoke.swipeNext()
+			});
+		</script>
+		
+		<script>
+		    $(function(){
+		        /*公共部分
+		         * 导航栏
+		         * footer CopyRight
+		         */
+		        $(".headerpage").load("header.html");
+		        $(".footerpage").load("footer.html");
+		    });
+		</script>
+		<script type="text/javascript">
+			// 用户登录显示
+			$(function(){
+				var tkn = getCookie(tk);
+				if(!tkn == ''){
+					$.ajax({
+						url: path + '/linA/getyh',
+						type:'GET',
+						beforeSend: function (XMLHttpRequest) {
+							XMLHttpRequest.setRequestHeader("token", tkn);
+						},
+						data:{},
+						dataType:'json', //后台返回的数据类型是json文本
+						success:function(result) {
+							if(result != "" && result.code == 1){
+								var btnType = result.user;
+								$('.login-name').html('嘿，'+ btnType.cUsername + '!');
+								$('.user-box2 .user-img img').attr('url', photoPath+btnType.cLogo);
+								$('.user-show1').addClass('hidden');
+								$('.user-show2').removeClass('hidden');
+								
+							}
+						}
+					})
+				}
+				$.ajax({
+					url: path + '/linA/listdh2',
+					type:'GET',
+					data:{
+						id: 15897038511562900
+					},
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						if(result != "" && result.code == 1){
+							var btnType = result.data;
+							for(var i in result.data){
+								var btnList =
+								'<a href="shop.html">' + btnType[i].cName + '</a>';
+								$('.btnType').append(btnList);
+							}
+						}
+					}
+				})
+			});
+			$(function(){
+				// var tkn = getCookie(tk);
+				$.ajax({
+					url: path + '/linA/listjjsf',
+					type:'GET',
+					// beforeSend: function (XMLHttpRequest) {
+					// 	XMLHttpRequest.setRequestHeader("token", tkn);
+					// },
+					data:{},
+					// contentType: 'application/json;charset=utf-8',
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						if(result != "" && result.code == 1){
+							var cityName = result.data;
+							console.log(result)
+							changeCity(cityName[0].cName);
+							$('.city').html(cityName[0].cName);
+							for(var i in cityName){
+								var cityList =
+								"<span onclick='changeCity(\"" + cityName[i].cName + "\")'>" + cityName[i].cName + "</span>";
+								$('.hide-inner').append(cityList);
+							}
+						}
+					}
+				})
+			});
+			function changeCity(pName){
+				$('#price-select .city').html(pName)
+				$('.hide-city').hide();
+				$.ajax({
+					url: path + '/linA/listjj',
+					type:'GET',
+					data:{
+						pName:pName
+					},
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						console.log(result)
+						if(result != "" && result.code == 1){
+							$('.price-swiper .swiper-wrapper').html('');
+							var jj = result.data;
+							for(var i in jj){
+								var Cbli = (jj[i].cYesterdayprice/jj[i].cTodayprice/100).toFixed(2);
+								var jjList =
+								'<div class="slide-list swiper-slide">' + 
+								'<h2 class="span-list1"><img src="' + photoPath + jj[i].cBlockId + '" >' + jj[i].cShopColumnType + '</h2>';
+								// 相较昨日变化趋势0=减少 1= 增加 2=持平 "
+								if(jj[i].cStatechange == 0){
+									jjList +=
+									'<div class="green span-list2">' + jj[i].cTodayprice + '<i class="fa fa-arrow-down" aria-hidden="true"></i></div>' +
+										'<div class="green span-list3">-'+ jj[i].cYesterdayprice + '&nbsp;&nbsp;&nbsp;&nbsp;-' +  Cbli[i] + '%</div>';
+								}else if(jj[i].cStatechange == 1){
+									jjList +=
+									'<div class="red span-list2">' + jj[i].cTodayprice + '<i class="fa fa-arrow-down" aria-hidden="true"></i></div>' +
+										'<div class="red span-list3">+'+ jj[i].cYesterdayprice +　'&nbsp;&nbsp;&nbsp;&nbsp;+' +  Cbli[i] + '%</div>';
+								}else if(jj[i].cStatechange == 2){
+									jjList +=
+									'<div class="blue span-list2">' + jj[i].cTodayprice + '<i class="fa fa-arrow-down" aria-hidden="true"></i></div>' +
+									'<div class="blue span-list3">0&nbsp;&nbsp;&nbsp;&nbsp;0%</div>';
+								}
+								jjList +=
+									'<div class="span-list4 clearfix"><span>' +  jj[i].cProvince + '</span></div></div>';
+								$('.price-swiper .swiper-wrapper').append(jjList);
+							};
+							var tabsSwiper = new Swiper('.price-swiper',{
+								noSwiping : true,
+								speed:500,
+								slidesPerView : 4,
+								slidesPerGroup : 1,
+							});
+							if($('.price-swiper .slide-list').length > 4){
+								$('.price-swiper .arrow-list').show()
+							}
+							$('.price-left').on('click', function(e){
+								e.preventDefault()
+								tabsSwiper.swipePrev()
+							});
+							$('.price-right').on('click', function(e){
+								e.preventDefault()
+								tabsSwiper.swipeNext()
+							});
+						}
+					}
+				})
+			};
+			// 首页及商城页获取商品省份列表
+			$(function(){
+				$.ajax({
+					url: path + '/linA/listsf',
+					type:'GET',
+					data:{},
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						if(result != "" && result.code == 1){
+							var sfName = result.data;
+							sfClick(sfName[0].cId);
+							for(var i in sfName){
+								var sfList =
+								"<li onclick='sfClick(this,\"" + sfName[i].cId + "\")'>" + sfName[i].cName + "</li>";
+								$('.shop-list').append(sfList);
+							};
+							$('.shop-list li:eq(0)').addClass('active')
+						}
+					}
+				})
+			});
+			// 加载城市商品列表
+			function sfClick(thiz,sfId){
+				$.ajax({
+					url: path + '/linA/listsp',
+					type:'GET',
+					data:{
+						pId:sfId
+					},
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						if(result != "" && result.code == 1){
+							$('.shop-swiper').html('');
+							$(thiz).addClass('active').siblings().removeClass('active');
+							var spName = result.data;
+							for(var i in spName){
+								var spList =
+								'<li><a class="clearfix" href="shop.html">' +
+								'<span><img class="shop-logo" src="' + photoPath + spName[i].cLogo + '">' + spName[i].cShopName + '</span>' +
+								'<span>' + spName[i].cName +'</span>'
+								'<span>' + spName[i].cName +'</span>'
+								'<span>' + spName[i].cName +'</span>'
+								'<span>' + spName[i].cName +'</span>'
+								'<span>查看</span></a></li>'
+								$('.shop-swiper').append(spList);
+							};
+						}
+					}
+				})
+			};
+			// 成交提示
+			$(function(){
+				$.ajax({
+					url: path + '/linA/listcjdt',
+					type:'GET',
+					data:{},
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						if(result != "" && result.code == 1){
+							var tsName = result.data;
+							for(var i in tsName){
+								var tsList =
+								'<div class="success-list swiper-slide">' +
+								'<img src="img/index/tip.png">恭喜<strong>' + tsName[i].orRealname +'</strong>&nbsp;&nbsp;<span style="font-size:12px;">( ' + tsName[i].orPhone + ' )</span>, 提货<i>' + tsName[i].orUsername + '</i><b>' + tsName[i].orVolume + '吨</b>&nbsp;。</div>';
+								$('.sucSwiper .swiper-wrapper').append(tsList);
+							};
+							// 成交展示
+							var sucSwiper = new Swiper('.sucSwiper',{
+								autoplay : 1000,
+								loop:true,
+								slidesPerView : 2,
+								grabCursor: true,
+								speed:3000,
+							});
+						}
+					}
+				})
+			});
+			// 最新成交
+			$(function(){
+				$.ajax({
+					url: path + '/linA/listzxcj',
+					type:'GET',
+					data:{},
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						if(result != "" && result.code == 1){
+							var zxName = result.data;
+							for(var i in zxName){
+								var zxList =
+								'<li class="swiper-slide">'+
+								'<div class="clearfix">'+
+								'<span class="deal-name">'+ zxName[i].dShopcolumntype +'&nbsp;&nbsp;' + zxName[i].dProducttexture +'</span>'+
+								'<span class="deal-price fr">'+ zxName[i].dPrice +'￥</span></div>'+
+								'<span class="deal-type">'+ zxName[i].dProductspec +'</span>' +
+								'<div class="deal-list clearfix">'+
+								'<span class="deal-point">'+ zxName[i].dShopname +'</span>'+
+								'<span class="deal-time fr">'+ zxName[i].dCreatetime +'</span>'+
+								'</div></li>';
+								
+								$('.deal-swiper .swiper-wrapper').append(zxList);
+							};
+							// 最新成交
+							var thirdswiperR1 = new Swiper('.deal-swiper',{
+								autoplay : 2000,
+								loop:true,
+								mode: 'vertical', //向上
+								slidesPerView : 4,
+								slidesPerGroup : 1,
+								grabCursor: true,
+								observer: true,       // 修改swiper自己或子元素时，自动初始化swiper  
+								observeParents: true, // 修改swiper的父元素时，自动初始化swiper
+							});
+						}
+					}
+				})
+			});
+			// 红包
+			$(function(){
+				$.ajax({
+					url: path + '/linA/listzxcj',
+					type:'GET',
+					data:{},
+					dataType:'json', //后台返回的数据类型是json文本
+					success:function(result) {
+						if(result != "" && result.code == 1){
+							var zxName = result.data;
+							for(var i in zxName){
+								var zxList =
+								'<li class="swiper-slide">'+
+								'<div class="clearfix">'+
+								'<span class="deal-name">'+ zxName[i].dShopcolumntype +'&nbsp;&nbsp;' + zxName[i].dProducttexture +'</span>'+
+								'<span class="deal-price fr">'+ zxName[i].dPrice +'￥</span></div>'+
+								'<span class="deal-type">'+ zxName[i].dProductspec +'</span>' +
+								'<div class="deal-list clearfix">'+
+								'<span class="deal-point">'+ zxName[i].dShopname +'</span>'+
+								'<span class="deal-time fr">'+ zxName[i].dCreatetime +'</span>'+
+								'</div></li>';
+								
+								$('.deal-swiper .swiper-wrapper').append(zxList);
+							};
+							// 最新成交
+							var thirdswiperR1 = new Swiper('.deal-swiper',{
+								autoplay : 2000,
+								loop:true,
+								mode: 'vertical', //向上
+								slidesPerView : 4,
+								slidesPerGroup : 1,
+								grabCursor: true,
+								observer: true,       // 修改swiper自己或子元素时，自动初始化swiper  
+								observeParents: true, // 修改swiper的父元素时，自动初始化swiper
+							});
+						}
+					}
+				})
+			})
+		</script>
+		<script type="text/javascript">
+			// 分类
+			$('.price-list li').click(function(){
+				if ($(this).is('.active')) {
+					$(this).removeClass('active');
+				} else{
+					$(this).addClass('active').siblings().removeClass('active');
+				}
+			})
+			// 显示地点
+			$('#price-select').click(function(event){
+				event.stopPropagation();
+				$('.hide-city').toggle();
+				return false;
+			});
+			//点击空白处隐藏地点选项
+			 $(document).click(function(event){
+				  var _con = $('.hide-city');	// 设置目标区域
+				  if(!_con.is(event.target) && _con.has(event.target).length === 0){ // Mark 1
+					$('.hide-city').hide();		//消失
+				  }
+			});
+			
+			$('.supply-btn').click(function(){
+				$('.fy-mb').show();
+				$(this).next('.fy-img').show();
+			});
+			$('.fy-mb').click(function(){
+				$('.fy-mb').hide();
+				$('.fy-img').hide();
+			})
+		</script>
+	</body>
+</html>

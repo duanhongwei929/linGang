@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>兑换</title>
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/head.css" />
+    <link rel="stylesheet" type="text/css" href="css/footer.css" />
+	<link rel="stylesheet" type="text/css" href="css/user.css"/>
+    <link rel="stylesheet" type="text/css" href="css/check-in.css" />
+</head>
+<body>
+<!-- 顶部导航 -->
+<div class="headerpage"></div>
+<!-- 页面主体 -->
+	<div class="goods-box">
+		<a style="text-align: right;color: #FF0000;" href="check-in.html">&lt;&lt;返回</a>
+		<h1>茅台</h1>
+		<div class="goods-top clearfix">
+			<div class="fl goods-img">
+				<img src="img/goods/mt.jpg" >
+			</div>
+			<div class="fl goods-mage">
+				<h3>奖品介绍</h3>
+				<p>品牌名称：茅台</p>
+				<p>度数: 52%Vol</p>
+				<p>净含量: <span class="needNum">500</span>ml</p>
+				<p>产地：贵州茅台酒厂</p>
+				<button type="button" onclick="goodsClick()">点击抽奖（50豆/次）</button>
+				<div class="goodsNum clearfix">
+					<span class="fl">我的钢豆数量：<b class="gdNum"></b>&nbsp;豆</span>
+					<span class="fr">当前毫升数：<b class="barNum"></b>&nbsp;ML</span>	
+				</div>
+			</div>
+		</div>
+		<div class="goods-rules">
+			<h3>活动规则</h3>
+			<h4>一．如何兑换？</h4>
+			<p>1.会员用户每 50个钢豆可兑换 1 次，获得随机数量的奖品，集满 1 瓶可兑换实物（具体以奖品介绍为准）。兑换所消耗的钢豆不予退还（包括但不限于活动截止未集满奖品等情况）。</p>
+			<p>2. 钢豆可通过“签到”等方式获得，具体可在钢豆详情页进行查看。</p>
+			<h4>二．如何提货？</h4>
+			<p>1.集满 1 瓶后可提货。点击“我的奖品”→“提货”，支付相应手续费并填写收货信息即可完成提货。</p>
+			<p>2.一般将在2周内发货并顺丰邮寄至您的收货地址处，节假日顺延。</p>
+			<h4>注：</h4>
+			<p>1.用户获得但未使用的钢豆，将在下一个自然年年底过期。</p>
+			<p>2.如发现刷单、作弊等恶意行为，将取消该用户活动资格，兑换同样无效。</p>
+			<p>3.本活动及奖品均与奖品公司无关，活动规则以实际页面最新描述为准，最终解释权归临钢网所有。</p>
+		</div>
+	</div>
+	<div class="userAdd-box">
+		<div class="userAdd-point">
+			<p class="approve-tit clearfix">收货地址 <a class="userAdd-close"></a></p>
+			<ul class="approve-box clearfix">
+				<li class="approve-list">
+					<span>联系人<i>*</i></span>
+					<input type="text" name="" id="" value="" placeholder="姓名" />
+				</li>
+				<li class="approve-list">
+					<span>联系方式<i>*</i></span>
+					<input type="text" name="" id="" value="" placeholder="手机号" />
+				</li>
+				<li class="approve-list">
+					<span>收货地址<i>*</i></span>
+					<select id="province_id" name="">
+						<option value="">省</option>
+					</select>
+					<select id="city_id" name="">
+						<option value="">市</option>
+					</select>
+					<select id="area_id" name="">
+						<option value="">区</option>
+					</select>
+					<br>
+					<input class="morePoint" type="text" name="" id="" value="" placeholder="详细地址" />
+				</li>
+				<li class="approve-list" style="text-align: center;">
+					<input type="button" name="" id="" value="提交" />
+				</li>
+			</ul>
+		</div>
+	</div>
+<!-- 主体结束 -->
+<div class="footerpage"></div>
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/right.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	$(function(){
+		/*公共部分
+		 * 导航栏
+		 * footer CopyRight
+		 */
+		$(".headerpage").load("header.html");
+		$(".footerpage").load("footer.html");
+	});
+	// 页面加载显示数量
+	$(function(){
+		var tkn = getCookie(tk);
+		$.ajax({
+			url: path + '/linA/getgd',
+			type: 'GET',
+			data: {},
+			dataType: 'json', //后台返回的数据类型是json文本
+			beforeSend: function(XMLHttpRequest) {
+				XMLHttpRequest.setRequestHeader("token", tkn);
+			},
+			success: function(result) {
+				console.log(result)
+				if(result != "" && result.code == 1){
+					var mysteelD = result.data.details;
+					var needNum = $('.needNum').html();
+					$('.gdNum').html(result.data.cGoldGz);
+					$('.barNum').html(result.data.cUb);
+					if(needNum<=result.data.cUb){
+						$('.goods-mage button').html('兑换奖品');
+					}
+				}else{
+					alert(result.msg)
+				}
+				
+				
+			}
+		})
+	});
+	
+	function goodsClick(){
+		var tkn = getCookie(tk);
+		var myNum = Number($('.gdNum').html());
+		var needNum = $('.needNum').html();
+		var barNum = Number($('.barNum').html());
+		if(needNum>barNum){		// 抽奖要干的事
+			if(myNum<50){
+				alert('您的钢豆数量不足！')
+			}else{
+				var max = 800;
+				var min = 400;
+				var num = parseInt((Math.random() * (max - min + 1) + min));
+				var getNum = num/1000;
+				var json = JSON.stringify({
+					iChangeintegral: 50,
+					iChangetype: 0,
+					iNowintegral:myNum - 50,
+					iReason:'茅台抽奖',
+					mlNum:getNum,
+					nowMlNum:barNum + getNum,
+					iIntegraltype:1
+				});
+				// var barNum2 = Number($('.barNum').html());
+				$.ajax({
+					url: path + '/linA/addjf',
+					type: 'POST',
+					data:json,
+					contentType: 'application/json;charset=utf-8',
+					dataType: 'json', //后台返回的数据类型是json文本
+					beforeSend: function(XMLHttpRequest) {
+						XMLHttpRequest.setRequestHeader("token", tkn);
+					},
+					success: function(result) {
+						console.log(result)
+						if(result != "" && result.code == 1){
+							alert('恭喜你获得' + num + '微升');
+							$('.gdNum').html(myNum - 50);
+							console.log(getNum)
+							console.log(barNum + getNum)
+							$('.barNum').html((barNum + getNum).toFixed(3));
+							if((barNum + getNum)>needNum){
+								$('.goods-mage button').html('兑换奖品');
+							}
+							
+						}else{
+							alert(result.msg)
+						}
+						
+						
+					}
+				});
+				
+			}
+			
+		} 
+		if (needNum<barNum) {		// 兑换要干的事
+			$('.userAdd-box').show();
+		}
+	};
+	$('.userAdd-close').click(function(){
+		$('.userAdd-box').hide();
+	})
+</script>
+
+</body>
+</html>

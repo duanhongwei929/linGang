@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/all.css" />
+		<link rel="stylesheet" type="text/css" href="css/detail.css" />
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/phone.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body style="padding-top: 50px;">
+		<div id="cart-head" class="show">
+			<div class="cart-head">
+				<a class="return" href="javascript:history.back(-1);">
+					<span class="arrow-left"></span>
+				</a>
+				<div class="head-title">开平板张数计算</div>
+			</div>
+		</div>
+		<div class="calcu-list">
+			<ul>
+				<li>
+					<span class="calcu-left">厚度：</span>
+					<span class="calcu-input"><input type="text" name="hd" id="hd" value="" placeholder="请输入厚度(mm)..."></span>
+				</li>
+				<li>
+					<span class="calcu-left">宽度：</span>
+					<span class="calcu-input"><input type="text" value="" name="kd" id="kd" placeholder="请输入宽度(mm)..."></span>
+				</li>
+				<li>
+					<span class="calcu-left">长度：</span>
+					<span class="calcu-input"><input type="text" value="" name="cd" id="cd" placeholder="请输入长度(mm)..."></span>
+				</li>
+				<li>
+					<span class="calcu-left">重量：</span>
+					<span class="calcu-input"><input type="text" value="" name="zs" id="zs" placeholder="请输入重量..."></span>
+				</li>
+				<li>
+					<span class="calcu-left">单位：</span>
+					<span class="calcu-select">
+						<select name="types" id="types">
+							<option value="t">吨（t）</option>
+							<option value="kg">千克（kg）</option>
+						</select>
+					</span>
+				</li>
+			</ul>
+		</div>
+		<div class="calcu-list">
+			<ul>
+				<li class="clearfix">
+					<span class="calcu-left fl">张数：</span>
+					<span class="calcu-content fr" id="wcont">0</span>
+				</li>
+			</ul>
+		</div>
+		<div class="calcu-submit">
+			<ul class="clearfix">
+		        <li><a href="#" class="calcu-btn grey" id="dreset">重置</a></li>
+		        <li><a href="#" class="calcu-btn" id="btn1">计算</a></li>
+		    </ul>
+		</div>
+	</body>
+</html>

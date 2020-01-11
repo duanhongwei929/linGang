@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计划购买</title>
+		<link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css"/>
+		<link rel="stylesheet" type="text/css" href="css/day.css"/>
+		<link rel="stylesheet" type="text/css" href="css/APlayer.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/shop.css"/>
+		<link rel="stylesheet" type="text/css" href="css/ulList.css"/>
+	</head>
+	<body>
+		<!-- 顶部导航 -->
+		<div class="headerpage"></div>
+		<!-- 页面主体 -->
+		<!-- <div class="main-pin"></div> -->
+		<div class="main-out">
+			<div class="main-cont pin-box clearfix" style="margin-top: 0;">
+				<div class="group-tit">
+					<h1>添加采购计划</h1>
+					<!-- <p>钢板拼着买，净尺寸！零浪费！</p> -->
+				</div>
+				<form action="" method="">
+					<div class="group-list group-good">
+						<h2>计划购买商品</h2>
+						<ul class="group-type">
+							<li>
+								<div class="group-time">
+									<input class="select-name" id="startTime" type="text" name="" value="" placeholder="请选择计划时间" />
+								</div>
+							</li>
+							<li>
+								<!-- <input class="group-ipt" type="text" name="" id="" value="" placeholder="钢厂" /> -->
+								<select class="group-ipt">
+									<option value ="">请选择钢厂</option>
+									<option value="1">邯钢</option>
+									<option value="2">沙钢</option>
+									<option value="3">日照</option>
+									<option value="4">泰钢</option>
+									<option value="5">马钢</option>
+									<option value="6">莱钢</option>
+									<option value="7">包钢</option>
+								</select>
+							</li>
+							<li>
+								<select class="select-name" name="">
+									<option value ="">请选择品名</option>
+									<option value="冷轧">冷轧</option>
+									<option value="冷成型">冷成型</option>
+									<option value="酸洗">酸洗</option>
+									<option value="热轧">热轧</option>
+									<option value="有花镀锌">有花镀锌</option>
+									<option value="无花镀锌">无花镀锌</option>
+									<option value="冷硬">冷硬</option>
+									<option value="其他">其他</option>
+								</select>
+							</li>
+							<li>
+								<!-- <input  type="text" name="" id="" value="" placeholder="材质" /> -->
+								<select class="group-ipt" name="">
+									<option value="">请选择材质</option>
+									<option value ="">SGCC</option>
+									<option value ="">Q235</option>
+									<option value ="">SGH400</option>
+									<option value ="">DX51D</option>
+									<option value ="">SGHCQ</option>
+								</select>
+							</li>
+							<li>
+								<input style="width: 260px;" class="group-ipt" type="text" name="" id="" value="" placeholder="净料规格（厚度*宽度*长度）" />
+							</li>
+							
+							<li>
+								<input style="width: 110px;" class="group-ipt" type="text" name="" id="" value="" placeholder="数量" />
+							</li>
+							<li>
+								<select class="select-unit" name="">
+									<option value ="吨">吨</option>
+									<option value ="张">张</option>
+									<option value ="卷">卷</option>
+									<option value ="件">件</option>
+								</select>
+							</li>
+						</ul>
+					</div>
+					<div class="group-list">
+						<h2>附加说明</h2>
+						<textarea name="content" placeholder="你可以填写更多补充说明，如试样、机械性能要求、用途、表面要求等"></textarea>
+					</div>
+					<div class="group-list">
+						<p>温馨提示：询价信息越完整，报价更精准！</p>
+						<input class="group-sub fr" type="submit"  value="添加计划">
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- 主体结束 -->
+		<!-- 底部 -->
+		<div class="footerpage"></div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/right.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/day.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$('#startTime').datePicker({
+				okFunc: function (date) {
+					console.log(date);
+				}
+			});
+		</script>
+		<script>
+		    $(function(){
+		        /*公共部分
+		         * 导航栏
+		         * footer CopyRight
+		         */
+		        $(".headerpage").load("header.html");
+		        $(".footerpage").load("footer.html");
+		    });
+		</script>
+	</body>
+</html>

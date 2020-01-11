@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no">
+    <title>签到</title>
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="./css/signin.css" />
+    <link rel="stylesheet" type="text/css" href="css/all.css" />
+</head>
+
+<body style="padding-top: 50px;padding-bottom: 70px;">
+<div id="cart-head" class="show">
+    <div class="cart-head">
+        <a class="return" href="javascript:history.back(-1);">
+            <span class="arrow-left"></span>
+        </a>
+        <div class="head-title">签到</div>
+        <a class="head-shop" href="phone.html">
+            <span class="foot-icon foot-home"></span>
+            <p>首页</p>
+        </a>
+    </div>
+</div>
+<div class="top flex flex-align-end flex-pack-center flex-warp">
+    <div class="out-1 flex flex-align-center flex-pack-center" id="signIn" onclick="check()">
+        <div class="out-2 flex flex-align-center flex-pack-center">
+            <div class="signBtn">
+                <strong id="sign-txt">签到</strong>
+                <span>连续<em id="sign-count">0</em>天</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tips">我有---个钢豆</div>
+<div class="Calendar">
+    <div class="siginBtn">+1</div>
+    <div class="siginBtn">~</div>
+    <div class="siginBtn">+2</div>
+    <div class="siginBtn">~</div>
+    <div class="siginBtn">+3</div>
+    <div class="siginBtn">~</div>
+    <div class="siginBtn">+4</div>
+    <div class="siginBtn">~</div>
+    <div class="siginBtn">+5</div>
+    <div class="siginBtn">~</div>
+    <div class="siginBtn">+6</div>
+    <div class="siginBtn">~</div>
+    <div class="siginBtn">+7</div>
+</div>
+<div class="exchange">
+    <ul>
+        <li>
+            <img src="./img/live.jpg" alt="">
+            <div>
+                <div>
+                    <p>抽奖领好礼</p>
+                    <!--                    <p>1000钢豆</p>-->
+                </div>
+                <button><a href="./user-lottery.html">去抽奖</a></button>
+            </div>
+        </li>
+        <li>
+            <img src="./img/account.png" alt="">
+            <div>
+                <div>
+                    <p>兑换100毫升酒</p>
+                    <p>1000钢豆</p>
+                </div>
+                <button>立即兑换</button>
+            </div>
+        </li>
+        <li>
+            <img src="./img/account.png" alt="">
+            <div>
+                <div>
+                    <p>兑换100毫升酒</p>
+                    <p>1000钢豆</p>
+                </div>
+                <button>立即兑换</button>
+            </div>
+        </li>
+        <li>
+            <img src="./img/account.png" alt="">
+            <div>
+                <div>
+                    <p>兑换100毫升酒</p>
+                    <p>1000钢豆</p>
+                </div>
+                <button>立即兑换</button>
+            </div>
+        </li>
+        <li>
+            <img src="./img/account.png" alt="">
+            <div>
+                <div>
+                    <p>兑换100毫升酒</p>
+                    <p>1000钢豆</p>
+                </div>
+                <button>立即兑换</button>
+            </div>
+        </li>
+        <li>
+            <img src="./img/account.png" alt="">
+            <div>
+                <div>
+                    <p>兑换100毫升酒</p>
+                    <p>1000钢豆</p>
+                </div>
+                <button>立即兑换</button>
+            </div>
+        </li>
+    </ul>
+    <div class="index-none">
+        <p>我已经到达底线了哦\(^o^)/~</p>
+    </div>
+</div>
+
+<!--底部-->
+<div class="footerpage"></div>
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+function check () {
+  $('#sign-txt')[0].innerHTML = '已签到';
+  $('#sign-count')[0].innerHTML = parseInt($('#sign-count')[0].innerHTML) + 1;
+  $('.siginBtn')[0].attributes[0].nodeValue = 'siginBtn coin';
+  console.log($('.siginBtn')[0].innerHTML)
+}
+</script>
+
+<script>
+$(function () {
+  /*公共部分
+   * 导航栏
+   * footer CopyRight
+   */
+  $('.footerpage').load('footer.html');
+});
+</script>
+</body>
+</html>

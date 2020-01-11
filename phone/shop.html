@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/all.css" />
+    <link rel="stylesheet" type="text/css" href="css/shop.css" />
+    <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/phone.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body style="padding-top: 100px;">
+<div id="cart-head" class="show">
+    <div class="cart-head">
+        <a class="return" href="javascript:history.back(-1);">
+            <span class="arrow-left"></span>
+        </a>
+        <div class="head-title">临钢商城</div>
+        <a class="head-shop" href="phone.html">
+            <span class="foot-icon foot-home"></span>
+            <p>首页</p>
+        </a>
+    </div>
+    <form id="search_form">
+        <div class="head-reorder">
+            <ul class="clearfix">
+                <li class="on" id="default_order"><a href="javascript:order('');">默认</a></li>
+                <li id="thick_order">
+                    <a href="javascript:order('thick');">规格</a>
+                    <span class="up"><img src="img/screen-up.png" width="7"></span>
+                    <span class="down"><img src="img/screen-down.png" width="7"></span>
+                </li>
+                <li id="price_order">
+                    <a href="javascript:order('price');">价格</a>
+                    <span class="up"><img src="img/screen-up.png" width="7"></span>
+                    <span class="down"><img src="img/screen-down.png" width="7"></span>
+                </li>
+                <li>
+                    <a class="search-btn" href="javascript:;">筛选</a>
+                    <span class="screen"><img src="img/screen.png" width="14"></span>
+                </li>
+                <input type="hidden" name="order_name" id="order_name" value="">
+                <input type="hidden" name="order_type" id="order_type" value="">
+            </ul>
+        </div>
+        <div class="head-search">
+            <ul>
+                <li>
+                    <select name="steel_name" id="steel_name"
+                            style="margin-bottom: 0;padding: 0 10px;color: #333; border: #efefef 1px solid !important;">
+                        <option value="">请选择钢厂</option>
+                        <option value="1">邯钢</option>
+                        <option value="2">沙钢</option>
+                        <option value="3">日照</option>
+                        <option value="4">泰钢</option>
+                        <option value="5">马钢</option>
+                        <option value="6">莱钢</option>
+                        <option value="7">包钢</option>
+                        <option value="8">邯宝</option>
+                        <option value="9">唐钢</option>
+                        <option value="10">鄂钢</option>
+                        <option value="11">首钢</option>
+                        <option value="12">万达</option>
+                        <option value="13">本钢</option>
+                        <option value="14">武钢</option>
+                        <option value="15">鞍钢</option>
+                        <option value="16">柳钢</option>
+                        <option value="17">国诚</option>
+                        <option value="18">烨辉</option>
+                        <option value="19">鞍钢天铁</option>
+                        <option value="20">安钢</option>
+                        <option value="21">湛江</option>
+                        <option value="22">西城</option>
+                        <option value="23">攀华</option>
+                        <option value="24">邯钢科弘</option>
+                        <option value="25">龙盛</option>
+                        <option value="26">韩国浦项</option>
+                        <option value="27">酒钢</option>
+                        <option value="28">宝钢</option>
+                        <option value="29">黄石</option>
+                        <option value="30">济钢</option>
+                        <option value="31">华烨</option>
+                        <option value="32">鞍钢莆田</option>
+                        <option value="33">承钢</option>
+                        <option value="34">梅钢</option>
+                        <option value="35">中彩</option>
+                        <option value="36">龙盛</option>
+                        <option value="37">天津新宇</option>
+                        <option value="38">中铁</option>
+                        <option value="39">鞍山神龙</option>
+                        <option value="40">国丰</option>
+                        <option value="41">吉林建龙</option>
+                        <option value="42">燕钢</option>
+                        <option value="43">山钢</option>
+                        <option value="44">本钢浦项</option>
+                        <option value="45">兆建</option>
+                        <option value="46">江阴宗承</option>
+                        <option value="47">山东瑞丰</option>
+                        <option value="48">本钢三冷</option>
+                        <option value="49">扬子江</option>
+                        <option value="50">沃丰</option>
+                        <option value="51">冠洲</option>
+                        <option value="52">万方</option>
+                        <option value="53">本钢一冷</option>
+                        <option value="55">中天</option>
+                        <option value="56">通钢</option>
+                        <option value="58">富伦</option>
+                    </select>
+                </li>
+                <li>
+                    <select name="product_name" id="product_name"
+                            style="margin-bottom: 0;padding: 0 10px;color: #333; border: #efefef 1px solid !important;">
+                        <option value="">请选择品名</option>
+                        <option value="3">冷轧卷</option>
+                        <option value="4">酸洗卷</option>
+                        <option value="5">热轧卷</option>
+                        <option value="6">镀锌卷</option>
+                        <option value="16">冷成型</option>
+                        <option value="32">冷硬卷</option>
+                        <option value="35">镀铝锌卷</option>
+                        <option value="37">冷轧盒板</option>
+                        <option value="41">有花镀锌</option>
+                        <option value="42">无花镀锌</option>
+                        <option value="908">方管</option>
+                    </select>
+                </li>
+                <li>
+                    <input name="material" type="text" placeholder="请输入牌号" value=""
+                           style="margin-bottom: 0;padding: 0 10px;color: #333; border: #efefef 1px solid !important;">
+                </li>
+                <li>
+                    <input name="spec" type="text" placeholder="请输入规格" value=""
+                           style="margin-bottom: 0;padding: 0 10px;color: #333; border: #efefef 1px solid !important;">
+                </li>
+                <li>
+                    <select name="warehouse_name" id="warehouse_name"
+                            style="margin-bottom: 0;padding: 0 10px;color: #333; border: #efefef 1px solid !important;">
+                        <option value="">请选择仓库</option>
+                        <option value="9">泰州库</option>
+                        <option value="10">无锡库</option>
+                        <option value="11">莱芜库</option>
+                        <option value="12">上海库</option>
+                        <option value="13">常州库</option>
+                        <option value="14">杭州库</option>
+                        <option value="20">苏州库</option>
+                        <option value="21">张家港库</option>
+                        <option value="22">宁波库</option>
+                        <option value="23">扬州库</option>
+                        <option value="24">宁波库</option>
+                        <option value="25">邯郸库</option>
+                        <option value="26">马鞍山库</option>
+                        <option value="27">南京库</option>
+                        <option value="28">济南库</option>
+                        <option value="29">临沂库</option>
+                        <option value="30">镇江库</option>
+                        <option value="31">武汉库</option>
+                        <option value="34">湖州库</option>
+                        <option value="36">天津库</option>
+                        <option value="39">合肥库</option>
+                        <option value="906">日照库</option>
+                    </select>
+                </li>
+                <li>
+                    <input type="button" value="搜索" onclick="search()">
+                </li>
+            </ul>
+        </div>
+        <input type="hidden" name="page" id="page" value="3">
+    </form>
+</div>
+<div class="shop-box">
+    <ul>
+        <li>
+            <div class="good-box">
+                <span class="good-list1">日照　冷成型　RECC</span>
+                <span class="good-list2"><b>2.000*1250*C</b></span>
+                <span class="good-list3">无锡库　供应：3件，26.985吨</span>
+                <span class="good-list4"><b>4160</b>元/吨</span>
+                <span class="good-list5">H</span>
+                <!-- <a href="news-keep.html">
+                    <span class="good-list6">在线咨询</span>
+                </a> -->
+            </div>
+            <div class="good-detail">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>数量</td>
+                        <td>单价</td>
+                        <td>备注</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>8.985</td>
+                        <td><b class="price">4160</b></td>
+                        <td></td>
+                        <td><a href="javascript:add_to_cart(55849);" class="buy">购买</a></td>
+                    </tr>
+                    <tr>
+                        <td>8.940</td>
+                        <td><b class="price">4160</b></td>
+                        <td></td>
+                        <td><a href="javascript:add_to_cart(55886);" class="buy">购买</a></td>
+                    </tr>
+                    <tr>
+                        <td>9.060</td>
+                        <td><b class="price">4160</b></td>
+                        <td></td>
+                        <td><a href="javascript:add_to_cart(55886);" class="buy">购买</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="good-more">
+                <a href="javascript:void(0);" class="product_detail">展开明细 <i class="fa fa-angle-down"
+                                                                             aria-hidden="true"></i>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<div class="index-none">
+    <p>我已经到达底线了哦\(^o^)/~</p>
+</div>
+
+
+<div class="shop-cart">
+    <a href="shop-car.html">
+        <div class="fix-cart"><img src="img/cart.png" width="25"></div>
+        <span class="fix-num">6</span>
+    </a>
+</div>
+
+
+<!--底部导航-->
+<div class="footerpage"></div>
+
+<script>
+$(function(){
+  /*公共部分
+   * 导航栏
+   * footer CopyRight
+   */
+  $(".footerpage").load("footer.html");
+});
+</script>
+<script type="text/javascript">
+$('.head-reorder li').click(function () {
+  $(this).parents('.head-reorder').find('li').removeClass('on');
+  $(this).addClass('on');
+});
+$('.search-btn').click(function () {
+  $('.head-search').show();
+  $(this).parent('li').siblings('li').click(function () {
+    $('.head-search').hide();
+  })
+})
+$('.good-more').click(function () {
+  var detail = $(this).siblings('.good-detail')
+  if ($(detail).is(':hidden')) {
+    $(detail).show();
+    $(this).find('i').removeClass('fa-angle-down').addClass('fa-angle-up');
+  } else {
+    $(detail).hide();
+    $(this).find('i').removeClass('fa-angle-up').addClass('fa-angle-down');
+  }
+});
+</script>
+<script type="text/javascript">
+var order_type = 'DESC';
+
+function order (name) {
+  if ($('#order_name').val() == name) {
+    order_type = order_type == 'DESC' ? 'ASC' : 'DESC';
+  } else {
+    order_type = 'ASC';
+  }
+  $('#order_name').val(name);
+  $('#order_type').val(order_type);
+
+  //样式控制
+  if (name == '') {
+    $('#default_order').addClass('on');
+    $('#thick_order').removeClass('on');
+    $('#price_order').removeClass('on');
+    $('#thick_order .up img').attr('src', 'img/screen-up.png');
+    $('#thick_order .down img').attr('src', 'img/screen-down.png');
+    $('#price_order .up img').attr('src', 'img/screen-up.png');
+    $('#price_order .down img').attr('src', 'img/screen-down.png');
+  } else if (name == 'thick') {
+    $('#default_order').removeClass('on');
+    $('#thick_order').addClass('on');
+    $('#price_order').removeClass('on');
+    if (order_type == 'ASC') {
+      $('#thick_order .up img').attr('src', 'img/screen-up-on.png');
+      $('#thick_order .down img').attr('src', 'img/screen-down.png');
+      $('#price_order .up img').attr('src', 'img/screen-up.png');
+      $('#price_order .down img').attr('src', 'img/screen-down.png');
+    } else {
+      $('#thick_order .up img').attr('src', 'img/screen-up.png');
+      $('#thick_order .down img').attr('src', 'img/screen-down-on.png');
+      $('#price_order .up img').attr('src', 'img/screen-up.png');
+      $('#price_order .down img').attr('src', 'img/screen-down.png');
+    }
+  } else if (name == 'price') {
+    $('#default_order').removeClass('on');
+    $('#thick_order').removeClass('on');
+    $('#price_order').addClass('on');
+    if (order_type == 'ASC') {
+      $('#price_order .up img').attr('src', 'img/screen-up-on.png');
+      $('#price_order .down img').attr('src', 'img/screen-down.png');
+      $('#thick_order .up img').attr('src', 'img/screen-up.png');
+      $('#thick_order .down img').attr('src', 'img/screen-down.png');
+    } else {
+      $('#price_order .up img').attr('src', 'img/screen-up.png');
+      $('#price_order .down img').attr('src', 'img/screen-down-on.png');
+      $('#thick_order .up img').attr('src', 'img/screen-up.png');
+      $('#thick_order .down img').attr('src', 'img/screen-down.png');
+    }
+  }
+}
+</script>
+</body>
+</html>
